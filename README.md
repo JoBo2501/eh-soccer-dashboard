@@ -8,7 +8,7 @@ A small static web app for following the 2026 Emory & Henry men's soccer season,
 - overall and South Atlantic Conference records
 - recent team performance metrics
 - remaining SAC fixtures
-- official live-stream and replay links, with access requirements
+- official live-stream, replay, lineup and live-stats links, with access requirements
 - current conference table
 - Niklas Borck player profile and verified match-sheet log
 - responsive light and dark themes

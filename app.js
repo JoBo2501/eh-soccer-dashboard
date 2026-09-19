@@ -76,12 +76,14 @@ function renderBroadcasts(matches, broadcasts = {}) {
     .filter((match) => match.conference)
     .sort((a, b) => a.date.localeCompare(b.date));
   const overrides = broadcasts.overrides || {};
+  const liveStats = broadcasts.liveStats || {};
 
   $("#broadcast-list").innerHTML = conferenceMatches.map((match) => {
     const isFinal = match.status === "final";
     const streamUrl = overrides[match.date]
       || (isFinal ? broadcasts.hubUrl : broadcasts.defaultUrl)
       || broadcasts.hubUrl;
+    const statsUrl = match.boxScoreUrl || liveStats[match.date];
     const action = isFinal ? "Open replay" : "Watch live";
     const availability = broadcasts.freeStatus || "No verified free stream";
     return `
@@ -98,7 +100,10 @@ function renderBroadcasts(matches, broadcasts = {}) {
           <span>${broadcasts.provider || "Official SAC video"}</span>
           <small>${availability}</small>
         </div>
-        <a class="broadcast-link" href="${streamUrl}" target="_blank" rel="noreferrer" aria-label="${action}: ${cleanOpponent(match.opponent)}">${action}<b aria-hidden="true">↗</b></a>
+        <div class="broadcast-actions">
+          <a class="broadcast-link" href="${streamUrl}" target="_blank" rel="noreferrer" aria-label="${action}: ${cleanOpponent(match.opponent)}">${action}<b aria-hidden="true">↗</b></a>
+          ${statsUrl ? `<a class="stats-link" href="${statsUrl}" target="_blank" rel="noreferrer" aria-label="${isFinal ? "Box score" : "Line-ups and live stats"}: ${cleanOpponent(match.opponent)}"><span>${isFinal ? "Box score" : "Line-ups & stats"}<small>${isFinal ? "Official match sheet" : "Usually close to kickoff"}</small></span><b aria-hidden="true">↗</b></a>` : ""}
+        </div>
       </article>`;
   }).join("");
 }

@@ -94,6 +94,17 @@
     "hubUrl": "https://www.flofc.com/collections/7902803-south-atlantic-conference-mens-soccer",
     "overrides": {
       "2026-09-19": "https://flosports.link/4yYsRcE"
+    },
+    "liveStats": {
+      "2026-09-19": "https://www.gowasps.com/links/03f1y5",
+      "2026-09-23": "https://www.gowasps.com/links/d0yk6n",
+      "2026-09-26": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260926_srj1.xml",
+      "2026-09-29": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260929_c58w.xml",
+      "2026-10-03": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261003_unje.xml",
+      "2026-10-07": "https://www.gowasps.com/links/185e9g",
+      "2026-10-17": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261017_2jbi.xml",
+      "2026-10-24": "https://www.gowasps.com/links/yfn42o",
+      "2026-10-28": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261028_e6ub.xml"
     }
   },
   "matches": [
