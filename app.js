@@ -42,7 +42,7 @@ function renderPlayer(player, nextMatch) {
   const verified = player.verifiedThrough ? `Verified through ${fmtDate(player.verifiedThrough, "long")}` : "Awaiting official match sheets";
   $("#player-next").innerHTML = `
     <p><small>NEXT CHANCE TO WATCH</small><strong>${nextMatch ? `${nextMatch.site === "away" ? "at " : "vs "}${cleanOpponent(nextMatch.opponent)}` : "Season complete"}</strong></p>
-    <p><small>OFFICIAL SAMPLE</small><strong>${player.goals} G · ${player.assists} A · ${player.shots} shots · ${player.shotsOnGoal} SOG</strong><small>${verified}</small></p>`;
+    <p><small>OFFICIAL SAMPLE</small><strong>${player.goals} G · ${player.assists} A · ${player.shots} shots · ${player.shotsOnGoal} SOG</strong><small>${verified}</small><small class="headband-note"><i aria-hidden="true"></i>Headband: currently white <span>· photo observation</span></small></p>`;
 
   $("#player-boxscores").innerHTML = [...(player.log || [])].reverse().map((match) => `
     <a class="boxscore-row" href="${match.url}" target="_blank" rel="noreferrer" aria-label="Official box score: ${cleanOpponent(match.opponent)}, ${fmtDate(match.date, "long")}">
