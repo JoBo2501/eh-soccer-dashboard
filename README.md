@@ -1,6 +1,6 @@
 # E&H Men's Soccer 2026 Tracker
 
-A small static web app for following the 2026 Emory & Henry men's soccer season, with a dedicated watch section for Niklas Borck.
+A small static web app for following the 2026 Emory & Henry men's soccer season, with a dedicated watch section for Niklas Borck. The visual system uses the team's black, white and gold palette and includes family-provided player and team photography.
 
 ## What is included
 
@@ -23,9 +23,13 @@ A small static web app for following the 2026 Emory & Henry men's soccer season,
 
 No build command, server, API key, or database is required.
 
-## Updating the data
+## Automatic updates
 
-All displayed data is in `index.html`. Search for the relevant player, fixture, result, or standings section and replace the visible values. Update the “Data through” date in the sidebar when results are added.
+The GitHub Action in `.github/workflows/update-season.yml` runs every six hours and can also be started manually from the Actions tab. It refreshes `data/season.json` from the official SAC schedule, standings and team statistics. When a newly completed game exposes a compatible official box score, the updater also looks for a verifiable Niklas Borck row.
+
+The updater is deliberately conservative. If a page is unavailable or a player row cannot be mapped reliably, the last verified value remains in place rather than being replaced with incomplete data.
+
+For a manual correction, edit `data/season.json`, commit the change and push it to `main`. GitHub Pages will redeploy automatically.
 
 Official sources:
 

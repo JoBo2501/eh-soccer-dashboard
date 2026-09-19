@@ -3,80 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A 2026 season tracking dashboard for Emory & Henry men's soccer, including results, upcoming SAC matches, form and standings."
-    />
-    <meta property="og:title" content="E&H Men's Soccer · 2026 Season Tracker" />
-    <meta
-      property="og:description"
-      content="Results, form, upcoming South Atlantic Conference matches and standings."
-    />
-    <title>E&H Men's Soccer · 2026 Season Tracker</title>
+    <meta name="theme-color" content="#0a0c0d" />
+    <meta name="description" content="The 2026 Emory & Henry men's soccer season, with a dedicated Niklas Borck player watch." />
+    <meta property="og:title" content="E&H Men's Soccer · The 14 Watch" />
+    <meta property="og:description" content="Results, SAC run-in and verified Niklas Borck match data." />
+    <meta property="og:image" content="https://jobo2501.github.io/eh-soccer-dashboard/assets/niklas-borck.webp" />
+    <title>E&H Men's Soccer · The 14 Watch</title>
     <link rel="preconnect" href="https://api.fontshare.com" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&f[]=cabinet-grotesk@700,800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&f[]=cabinet-grotesk@700,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to dashboard</a>
-
     <div class="app-shell">
-      <aside class="rail" aria-label="Dashboard identity">
-        <a class="brand" href="#main" aria-label="E and H men's soccer season tracker">
+      <aside class="rail" aria-label="Dashboard navigation">
+        <a class="brand" href="#overview" aria-label="E and H men's soccer tracker">
           <svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-label="E and H wasp monogram">
-            <path d="M9 13h21l9 11-9 11H9l7-11-7-11Z" fill="currentColor" />
-            <path d="M17 17h13l5 7-5 7H17l4-7-4-7Z" fill="var(--ink)" />
-            <path d="M23 17v14M30 18l-7 6 7 6" fill="none" stroke="currentColor" stroke-width="3" />
+            <path d="M9 13h21l9 11-9 11H9l7-11-7-11Z" fill="currentColor"/>
+            <path d="M17 17h13l5 7-5 7H17l4-7-4-7Z" fill="#0a0c0d"/>
+            <path d="M23 17v14M30 18l-7 6 7 6" fill="none" stroke="currentColor" stroke-width="3"/>
           </svg>
-          <span class="brand-copy"><strong>E&amp;H</strong><small>MEN'S SOCCER</small></span>
+          <span><strong>E&amp;H</strong><small>MEN'S SOCCER</small></span>
         </a>
-
-        <nav class="rail-nav" aria-label="Dashboard sections">
-          <button class="nav-link active" data-scroll="overview" data-testid="nav-overview">
-            <span>01</span> Overview
-          </button>
-          <button class="nav-link player-nav" data-scroll="player-watch" data-testid="nav-player">
-            <span>02</span> Niklas Watch
-          </button>
-          <button class="nav-link" data-scroll="results" data-testid="nav-results">
-            <span>03</span> Results
-          </button>
-          <button class="nav-link" data-scroll="schedule" data-testid="nav-schedule">
-            <span>04</span> Schedule
-          </button>
-          <button class="nav-link" data-scroll="standings" data-testid="nav-standings">
-            <span>05</span> Standings
-          </button>
+        <nav class="rail-nav" aria-label="Sections">
+          <button class="nav-link active" data-scroll="overview"><span>01</span> Season</button>
+          <button class="nav-link player-nav" data-scroll="niklas"><span>14</span> Niklas</button>
+          <button class="nav-link" data-scroll="schedule"><span>02</span> Schedule</button>
+          <button class="nav-link" data-scroll="results"><span>03</span> Results</button>
+          <button class="nav-link" data-scroll="standings"><span>04</span> SAC table</button>
         </nav>
-
-        <div class="rail-footer">
-          <span class="live-dot" aria-hidden="true"></span>
-          <div><strong>Data through Sep 15</strong><small>Checked Sep 19, 2026</small></div>
+        <div class="rail-status">
+          <span class="status-light"></span>
+          <div><strong id="rail-status">Auto-updated</strong><small id="rail-updated">Loading data…</small></div>
         </div>
       </aside>
 
       <header class="topbar">
-        <div class="mobile-brand">
+        <a class="mobile-brand" href="#overview" aria-label="E and H home">
           <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-            <path d="M9 13h21l9 11-9 11H9l7-11-7-11Z" fill="currentColor" />
-            <path d="M17 17h13l5 7-5 7H17l4-7-4-7Z" fill="var(--ink)" />
-            <path d="M23 17v14M30 18l-7 6 7 6" fill="none" stroke="currentColor" stroke-width="3" />
+            <path d="M9 13h21l9 11-9 11H9l7-11-7-11Z" fill="currentColor"/>
+            <path d="M17 17h13l5 7-5 7H17l4-7-4-7Z" fill="#0a0c0d"/>
+            <path d="M23 17v14M30 18l-7 6 7 6" fill="none" stroke="currentColor" stroke-width="3"/>
           </svg>
           <strong>E&amp;H · 2026</strong>
-        </div>
-        <span class="season-status"><i></i> Season in progress</span>
+        </a>
+        <span class="season-status"><i></i> Live season file</span>
         <div class="top-actions">
-          <a
-            class="text-link"
-            href="https://thesac.com/standings.aspx?path=msoc"
-            target="_blank"
-            rel="noreferrer"
-            data-testid="link-live-standings"
-          >Live SAC standings <span aria-hidden="true">↗</span></a>
-          <button class="icon-button" id="theme-toggle" aria-label="Switch to dark mode" data-testid="button-theme">
+          <a class="text-link" href="https://thesac.com/standings.aspx?path=msoc" target="_blank" rel="noreferrer">Live SAC standings ↗</a>
+          <button class="icon-button" id="refresh-data" aria-label="Refresh season data" title="Refresh season data">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8.1 8.1 0 0 0-15.5-2M4 4v5h5M4 13a8.1 8.1 0 0 0 15.5 2M20 20v-5h-5"/></svg>
+          </button>
+          <button class="icon-button" id="theme-toggle" aria-label="Switch to dark mode" title="Change theme">
             <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
             <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
           </button>
@@ -84,344 +62,102 @@
       </header>
 
       <main class="main" id="main">
-        <section class="overview" id="overview" aria-labelledby="page-title">
-          <div class="title-row">
-            <div>
-              <p class="eyebrow">2026 REGULAR SEASON</p>
-              <h1 id="page-title">Wasps season tracker</h1>
-              <p class="lede">Results, form and the South Atlantic Conference run-in.</p>
-            </div>
-            <div class="record-lockup" data-testid="record-overall">
-              <span>OVERALL</span>
-              <strong>1–1–4</strong>
+        <section class="season-hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">2026 · THE WASPS</p>
+            <h1 id="page-title">Every match.<br><span>Every moment.</span></h1>
+            <p>Emory &amp; Henry's SAC campaign, tracked from the final whistle to the next kickoff.</p>
+            <div class="hero-record">
+              <div><span>Overall</span><strong id="overall-record">1–1–4</strong></div>
+              <div><span>SAC</span><strong id="conference-record">0–0–1</strong></div>
+              <div><span>Goal diff.</span><strong id="goal-difference">+1</strong></div>
             </div>
           </div>
+          <figure class="team-visual">
+            <img src="./assets/team-2026.webp" alt="Emory & Henry men's soccer players celebrating together after training" width="1332" height="1120" decoding="async" />
+            <figcaption><span>TOGETHER</span><strong>ONE TEAM</strong></figcaption>
+          </figure>
+          <article class="next-match-card" id="next-match" aria-live="polite"></article>
+        </section>
 
-          <div class="scoreboard-grid">
-            <article class="next-match" data-testid="card-next-match">
-              <div class="card-kicker">
-                <span class="pulse"></span>
-                NEXT MATCH · SAC
-              </div>
-              <div class="match-date">
-                <span>SAT</span>
-                <strong>19</strong>
-                <small>SEP</small>
-              </div>
-              <div class="match-main">
-                <p>AWAY · SALISBURY, NC</p>
-                <h2>Catawba</h2>
-                <div class="match-meta"><strong>3:30 PM ET</strong><span>Conference leader · 5–0–1</span></div>
-              </div>
-              <div class="rank-chip"><span>SAC</span><strong>#1</strong></div>
-            </article>
-
-            <article class="kpi-card">
-              <span class="kpi-label">Conference</span>
-              <strong class="kpi-value" data-testid="record-conference">0–0–1</strong>
-              <span class="kpi-note">1 point · 5th</span>
-            </article>
-            <article class="kpi-card">
-              <span class="kpi-label">Goal difference</span>
-              <strong class="kpi-value positive" data-testid="metric-goal-difference">+1</strong>
-              <span class="kpi-note">8 for · 7 against</span>
-            </article>
-            <article class="kpi-card">
-              <span class="kpi-label">Unbeaten run</span>
-              <strong class="kpi-value" data-testid="metric-unbeaten">4</strong>
-              <span class="kpi-note">Four straight draws</span>
-            </article>
+        <section class="niklas-watch" id="niklas" aria-labelledby="niklas-title">
+          <div class="athlete-image">
+            <img src="./assets/niklas-borck.webp" alt="Niklas Borck in the Emory & Henry number 14 soccer jersey" width="1800" height="1201" decoding="async" />
+            <span class="mega-number" aria-hidden="true">14</span>
+            <div class="image-label"><i></i> PLAYER WATCH</div>
           </div>
-
-          <div class="analysis-grid">
-            <article class="panel performance-panel">
-              <div class="panel-heading">
-                <div>
-                  <p class="eyebrow">PERFORMANCE</p>
-                  <h2>Scoring balance</h2>
-                </div>
-                <span class="sample-badge">6 matches</span>
-              </div>
-              <div class="bar-chart" role="img" aria-label="Goals per match: 1.33 scored and 1.17 conceded">
-                <div class="chart-row">
-                  <span>Scored</span>
-                  <div class="bar-track"><i class="bar scored" style="--bar: 83%"></i></div>
-                  <strong>1.33</strong>
-                </div>
-                <div class="chart-row">
-                  <span>Conceded</span>
-                  <div class="bar-track"><i class="bar conceded" style="--bar: 73%"></i></div>
-                  <strong>1.17</strong>
-                </div>
-              </div>
-              <div class="stat-strip">
-                <div><strong>15.0</strong><span>Shots / match</span></div>
-                <div><strong>6.17</strong><span>Corners / match</span></div>
-                <div><strong>1</strong><span>Clean sheet</span></div>
-              </div>
-            </article>
-
-            <article class="panel form-panel">
-              <div class="panel-heading">
-                <div>
-                  <p class="eyebrow">CURRENT FORM</p>
-                  <h2>Last five</h2>
-                </div>
-                <strong class="form-summary">0–1–4</strong>
-              </div>
-              <div class="form-line" aria-label="Last five results: loss, draw, draw, draw, draw">
-                <span class="form loss" title="Loss at Rollins">L</span>
-                <i></i>
-                <span class="form draw" title="Draw vs Lynn">D</span>
-                <i></i>
-                <span class="form draw" title="Draw at Chowan">D</span>
-                <i></i>
-                <span class="form draw" title="Draw vs Palm Beach Atlantic">D</span>
-                <i></i>
-                <span class="form draw" title="Draw vs Anderson">D</span>
-              </div>
-              <div class="recent-split">
-                <div><span>Last 4 scored</span><strong>1.00 / match</strong></div>
-                <div><span>Last 4 conceded</span><strong>1.00 / match</strong></div>
-              </div>
-              <p class="insight">Level after 90 minutes in every match since August 29.</p>
-            </article>
+          <div class="athlete-copy">
+            <div class="athlete-heading">
+              <p class="eyebrow">GERMANY · MIDFIELDER / FORWARD</p>
+              <h2 id="niklas-title">NIKLAS<br>BORCK</h2>
+              <p class="player-subline">#14 · Right-footed · Born Aug 6, 2003</p>
+            </div>
+            <div class="player-stats" id="player-stats" aria-label="Niklas Borck verified statistics"></div>
+            <div class="player-next" id="player-next"></div>
+            <a class="outline-link" href="https://www.sofascore.com/football/player/niklas-borck/2722370" target="_blank" rel="noreferrer">Open player updates ↗</a>
           </div>
         </section>
 
-        <section class="section-block player-watch" id="player-watch" aria-labelledby="player-title">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">PLAYER TO WATCH</p>
-              <h2 id="player-title">Niklas Borck</h2>
-            </div>
-            <a
-              class="text-link"
-              href="https://www.sofascore.com/football/player/niklas-borck/2722370"
-              target="_blank"
-              rel="noreferrer"
-              data-testid="link-player-live"
-            >Player updates <span aria-hidden="true">↗</span></a>
+        <section class="performance-band" aria-labelledby="performance-title">
+          <div>
+            <p class="eyebrow">TEAM PULSE</p>
+            <h2 id="performance-title">Scoring balance</h2>
           </div>
-
-          <article class="player-hero" data-testid="card-niklas-borck">
-            <div class="player-identity">
-              <div class="shirt-number" aria-label="Jersey number 14">
-                <small>E&amp;H</small>
-                <strong>14</strong>
-              </div>
-              <div>
-                <p class="player-overline">GERMANY · MIDFIELDER / FORWARD</p>
-                <h3>Niklas<br />Borck</h3>
-                <div class="player-meta">
-                  <span>Age 23</span>
-                  <span>Born Aug 6, 2003</span>
-                  <span>Right-footed</span>
-                </div>
-              </div>
-            </div>
-            <div class="player-next">
-              <p>NEXT CHANCE TO WATCH</p>
-              <strong>at Catawba</strong>
-              <span>Sep 19 · 3:30 PM ET</span>
-              <small>Lineup confirmation is normally available near kickoff.</small>
-            </div>
-          </article>
-
-          <div class="player-detail-grid">
-            <article class="panel player-stats">
-              <div class="panel-heading">
-                <div>
-                  <p class="eyebrow">VERIFIED SAMPLE</p>
-                  <h2>Available match sheets</h2>
-                </div>
-                <span class="sample-badge">3 matches</span>
-              </div>
-              <div class="player-stat-grid">
-                <div><strong>117</strong><span>Minutes</span></div>
-                <div><strong>2</strong><span>Starts</span></div>
-                <div><strong>2</strong><span>Shots</span></div>
-                <div><strong>1</strong><span>On target</span></div>
-              </div>
-              <p class="data-caveat">
-                These are minimum confirmed figures from three accessible official box scores, not complete season totals.
-              </p>
-            </article>
-
-            <article class="panel player-log">
-              <div class="panel-heading">
-                <div>
-                  <p class="eyebrow">APPEARANCE LOG</p>
-                  <h2>Verified performances</h2>
-                </div>
-              </div>
-              <div class="appearance-list">
-                <a href="https://floridatechsports.com/sports/mens-soccer/stats/2026/emory-henry-university/boxscore/17520" target="_blank" rel="noreferrer">
-                  <time datetime="2026-08-27">Aug 27</time>
-                  <strong>at Florida Tech</strong>
-                  <span>Sub · 21′</span>
-                  <b>1 shot · 1 SOG</b>
-                </a>
-                <a href="https://lynnfightingknights.com/sports/mens-soccer/stats/2026/emory-henry/boxscore/10970" target="_blank" rel="noreferrer">
-                  <time datetime="2026-09-06">Sep 06</time>
-                  <strong>vs Lynn</strong>
-                  <span>Start · 73′</span>
-                  <b>1 shot</b>
-                </a>
-                <a href="https://gocuhawks.com/sports/mens-soccer/stats/2026/emory-henry-university/boxscore/12012" target="_blank" rel="noreferrer">
-                  <time datetime="2026-09-09">Sep 09</time>
-                  <strong>at Chowan</strong>
-                  <span>Start · 23′</span>
-                  <b>0 shots</b>
-                </a>
-              </div>
-            </article>
+          <div class="metric-bars">
+            <div class="metric-row"><span>Scored / match</span><div><i id="bar-scored"></i></div><strong id="goals-for-average">1.33</strong></div>
+            <div class="metric-row"><span>Conceded / match</span><div><i id="bar-conceded"></i></div><strong id="goals-against-average">1.17</strong></div>
+          </div>
+          <div class="pulse-metrics">
+            <div><strong id="shots-average">15.0</strong><span>Shots / match</span></div>
+            <div><strong id="corners-average">6.17</strong><span>Corners / match</span></div>
+            <div><strong id="unbeaten-run">4</strong><span>Unbeaten run</span></div>
           </div>
         </section>
 
         <section class="section-block" id="schedule" aria-labelledby="schedule-title">
           <div class="section-heading">
-            <div>
-              <p class="eyebrow">ROAD AHEAD</p>
-              <h2 id="schedule-title">Next three opponents</h2>
-            </div>
-            <a
-              class="text-link"
-              href="https://thesac.com/schedule.aspx?schedule=2504"
-              target="_blank"
-              rel="noreferrer"
-              data-testid="link-official-schedule"
-            >Official schedule <span aria-hidden="true">↗</span></a>
+            <div><p class="eyebrow">ROAD AHEAD</p><h2 id="schedule-title">Next three opponents</h2></div>
+            <a class="text-link" href="https://thesac.com/schedule.aspx?schedule=2504" target="_blank" rel="noreferrer">Official schedule ↗</a>
           </div>
-
-          <div class="opponent-row">
-            <article class="opponent-card primary" data-testid="opponent-catawba">
-              <div class="opponent-number">01</div>
-              <p>SEP 19 · AWAY · 3:30 PM</p>
-              <h3>Catawba</h3>
-              <div class="opponent-stats">
-                <span><small>OVERALL</small><strong>5–0–1</strong></span>
-                <span><small>SAC</small><strong>2–0</strong></span>
-                <span><small>FORM</small><strong>W5</strong></span>
-              </div>
-            </article>
-            <article class="opponent-card" data-testid="opponent-lenoir-rhyne">
-              <div class="opponent-number">02</div>
-              <p>SEP 23 · AWAY · 7:30 PM</p>
-              <h3>Lenoir-Rhyne</h3>
-              <div class="opponent-stats">
-                <span><small>OVERALL</small><strong>0–4–2</strong></span>
-                <span><small>SAC</small><strong>0–1–1</strong></span>
-                <span><small>FORM</small><strong>L2</strong></span>
-              </div>
-            </article>
-            <article class="opponent-card" data-testid="opponent-coker">
-              <div class="opponent-number">03</div>
-              <p>SEP 26 · HOME · 8:30 PM</p>
-              <h3>Coker</h3>
-              <div class="opponent-stats">
-                <span><small>OVERALL</small><strong>2–2</strong></span>
-                <span><small>SAC</small><strong>1–1</strong></span>
-                <span><small>FORM</small><strong>W1</strong></span>
-              </div>
-            </article>
-          </div>
-
-          <div class="panel fixtures-panel">
-            <div class="panel-heading">
-              <div>
-                <p class="eyebrow">CONFERENCE SCHEDULE</p>
-                <h2>Remaining SAC matches</h2>
-              </div>
-              <span class="sample-badge">9 fixtures</span>
-            </div>
-            <div class="fixtures-list" data-testid="list-upcoming-fixtures">
-              <div class="fixture featured"><time datetime="2026-09-19">Sep 19</time><span class="venue away">A</span><strong>Catawba</strong><span>3:30 PM</span></div>
-              <div class="fixture featured"><time datetime="2026-09-23">Sep 23</time><span class="venue away">A</span><strong>Lenoir-Rhyne</strong><span>7:30 PM</span></div>
-              <div class="fixture featured"><time datetime="2026-09-26">Sep 26</time><span class="venue home">H</span><strong>Coker</strong><span>8:30 PM</span></div>
-              <div class="fixture"><time datetime="2026-09-29">Sep 29</time><span class="venue away">A</span><strong>Mars Hill</strong><span>7:30 PM</span></div>
-              <div class="fixture"><time datetime="2026-10-03">Oct 03</time><span class="venue home">H</span><strong>Carson-Newman</strong><span>7:30 PM</span></div>
-              <div class="fixture"><time datetime="2026-10-07">Oct 07</time><span class="venue away">A</span><strong>Lincoln Memorial</strong><span>7:00 PM</span></div>
-              <div class="fixture"><time datetime="2026-10-17">Oct 17</time><span class="venue home">H</span><strong>Newberry</strong><span>TBA</span></div>
-              <div class="fixture"><time datetime="2026-10-24">Oct 24</time><span class="venue away">A</span><strong>Wingate</strong><span>7:30 PM</span></div>
-              <div class="fixture"><time datetime="2026-10-28">Oct 28</time><span class="venue home">H</span><strong>Tusculum</strong><span>7:30 PM</span></div>
-            </div>
-            <p class="timezone-note">Times shown in venue local time (ET). Schedule may change.</p>
-          </div>
+          <div class="opponent-row" id="next-opponents"></div>
+          <article class="list-panel">
+            <header><div><p class="eyebrow">CONFERENCE SCHEDULE</p><h3>Remaining SAC matches</h3></div><span id="fixture-count"></span></header>
+            <div class="fixtures-list" id="fixtures-list"></div>
+            <footer>Venue-local time (ET). Schedule changes sync automatically.</footer>
+          </article>
         </section>
 
         <section class="section-block" id="results" aria-labelledby="results-title">
           <div class="section-heading">
-            <div>
-              <p class="eyebrow">MATCH LOG</p>
-              <h2 id="results-title">Completed games</h2>
-            </div>
+            <div><p class="eyebrow">MATCH LOG</p><h2 id="results-title">Completed games</h2></div>
             <div class="filter-group" role="group" aria-label="Filter completed games">
-              <button class="filter active" data-filter="all" data-testid="filter-all">All</button>
-              <button class="filter" data-filter="home" data-testid="filter-home">Home</button>
-              <button class="filter" data-filter="away" data-testid="filter-away">Away</button>
+              <button class="filter active" data-filter="all">All</button>
+              <button class="filter" data-filter="home">Home</button>
+              <button class="filter" data-filter="away">Away</button>
             </div>
           </div>
-
-          <div class="table-wrap panel">
+          <div class="table-wrap list-panel">
             <table>
-              <thead>
-                <tr><th>Date</th><th>Opponent</th><th>Site</th><th>Result</th><th>Score</th></tr>
-              </thead>
-              <tbody id="results-body">
-                <tr data-site="away"><td>Aug 27</td><td>Florida Tech</td><td>Melbourne, FL</td><td><span class="result-badge win">W</span></td><td class="score">3–1</td></tr>
-                <tr data-site="away"><td>Aug 29</td><td>Rollins</td><td>Winter Park, FL</td><td><span class="result-badge loss">L</span></td><td class="score">1–2</td></tr>
-                <tr data-site="home"><td>Sep 06</td><td>Lynn</td><td>Emory, VA</td><td><span class="result-badge draw">D</span></td><td class="score">1–1</td></tr>
-                <tr data-site="away"><td>Sep 09</td><td>Chowan</td><td>Murfreesboro, NC</td><td><span class="result-badge draw">D</span></td><td class="score">1–1</td></tr>
-                <tr data-site="home"><td>Sep 12</td><td>Palm Beach Atlantic</td><td>Emory, VA</td><td><span class="result-badge draw">D</span></td><td class="score">0–0</td></tr>
-                <tr data-site="home"><td>Sep 15</td><td>Anderson <small class="conference-tag">SAC</small></td><td>Emory, VA</td><td><span class="result-badge draw">D</span></td><td class="score">2–2</td></tr>
-              </tbody>
+              <thead><tr><th>Date</th><th>Opponent</th><th>Site</th><th>Result</th><th>Score</th></tr></thead>
+              <tbody id="results-body"></tbody>
             </table>
           </div>
         </section>
 
         <section class="section-block standings-section" id="standings" aria-labelledby="standings-title">
           <div class="section-heading">
-            <div>
-              <p class="eyebrow">SOUTH ATLANTIC CONFERENCE</p>
-              <h2 id="standings-title">Current table</h2>
-            </div>
-            <a
-              class="button-link"
-              href="https://thesac.com/standings.aspx?path=msoc"
-              target="_blank"
-              rel="noreferrer"
-              data-testid="link-full-standings"
-            >Open live standings <span aria-hidden="true">↗</span></a>
+            <div><p class="eyebrow">SOUTH ATLANTIC CONFERENCE</p><h2 id="standings-title">Current table</h2></div>
+            <a class="solid-link" href="https://thesac.com/standings.aspx?path=msoc" target="_blank" rel="noreferrer">Open live standings ↗</a>
           </div>
-
-          <div class="table-wrap panel">
-            <table class="standings-table">
+          <div class="table-wrap list-panel">
+            <table>
               <thead><tr><th>#</th><th>Team</th><th>SAC</th><th>Pts</th><th>Overall</th><th>Form</th></tr></thead>
-              <tbody>
-                <tr><td>1</td><td>Catawba</td><td>2–0</td><td>6</td><td>5–0–1</td><td>W5</td></tr>
-                <tr><td>2</td><td>Lincoln Memorial</td><td>2–0</td><td>6</td><td>3–1–1</td><td>W1</td></tr>
-                <tr><td>3</td><td>Anderson</td><td>1–0–1</td><td>4</td><td>4–0–2</td><td>D1</td></tr>
-                <tr><td>4</td><td>Carson-Newman</td><td>1–0–1</td><td>4</td><td>2–1–2</td><td>W1</td></tr>
-                <tr class="team-row" data-testid="row-emory-henry"><td>5</td><td><span class="team-dot"></span>Emory &amp; Henry</td><td>0–0–1</td><td>1</td><td>1–1–4</td><td>D4</td></tr>
-                <tr><td>6</td><td>Coker</td><td>1–1</td><td>3</td><td>2–2</td><td>W1</td></tr>
-                <tr><td>7</td><td>Lenoir-Rhyne</td><td>0–1–1</td><td>1</td><td>0–4–2</td><td>L2</td></tr>
-                <tr><td>8</td><td>Wingate</td><td>0–1</td><td>0</td><td>3–2</td><td>W1</td></tr>
-                <tr><td>9</td><td>Mars Hill</td><td>0–1</td><td>0</td><td>2–2–2</td><td>L1</td></tr>
-                <tr><td>10</td><td>Tusculum</td><td>0–1</td><td>0</td><td>1–3</td><td>L1</td></tr>
-                <tr><td>11</td><td>Newberry</td><td>0–2</td><td>0</td><td>1–5</td><td>W1</td></tr>
-              </tbody>
+              <tbody id="standings-body"></tbody>
             </table>
           </div>
-          <p class="source-note">
-            Snapshot checked September 19, 2026. Match data:
-            <a href="https://thesac.com/schedule.aspx?schedule=2504" target="_blank" rel="noreferrer">SAC team schedule</a>.
-            Statistics: <a href="https://thesac.com/stats.aspx?path=msoc&amp;year=2026" target="_blank" rel="noreferrer">SAC statistics</a>.
-          </p>
+          <p class="source-note" id="source-note">Official SAC data. Loading latest update…</p>
         </section>
       </main>
     </div>
-
-    <script src="./app.js"></script>
   </body>
 </html>

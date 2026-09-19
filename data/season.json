@@ -1,0 +1,286 @@
+{
+  "updatedAt": "2026-09-19T14:36:59Z",
+  "source": "https://thesac.com/schedule.aspx?schedule=2504",
+  "team": {
+    "overall": "1-1-4",
+    "conference": "0-0-1",
+    "goalsFor": 8,
+    "goalsAgainst": 7,
+    "games": 6,
+    "shots": 90,
+    "corners": 37,
+    "unbeatenRun": 4
+  },
+  "player": {
+    "name": "Niklas Borck",
+    "number": 14,
+    "minutes": 117,
+    "starts": 2,
+    "appearances": 3,
+    "goals": 0,
+    "assists": 0,
+    "shots": 2,
+    "shotsOnGoal": 1,
+    "verifiedThrough": "2026-09-09",
+    "log": [
+      {
+        "date": "2026-08-27",
+        "opponent": "Florida Tech",
+        "site": "away",
+        "role": "Sub",
+        "minutes": 21,
+        "shots": 1,
+        "shotsOnGoal": 1,
+        "url": "https://floridatechsports.com/sports/mens-soccer/stats/2026/emory-henry-university/boxscore/17520"
+      },
+      {
+        "date": "2026-09-06",
+        "opponent": "Lynn",
+        "site": "home",
+        "role": "Start",
+        "minutes": 73,
+        "shots": 1,
+        "shotsOnGoal": 0,
+        "url": "https://lynnfightingknights.com/sports/mens-soccer/stats/2026/emory-henry/boxscore/10970"
+      },
+      {
+        "date": "2026-09-09",
+        "opponent": "Chowan",
+        "site": "away",
+        "role": "Start",
+        "minutes": 23,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "url": "https://gocuhawks.com/sports/mens-soccer/stats/2026/emory-henry-university/boxscore/12012"
+      }
+    ]
+  },
+  "matches": [
+    {
+      "date": "2026-08-27",
+      "opponent": "Florida Tech",
+      "site": "away",
+      "location": "Melbourne, FL",
+      "conference": false,
+      "status": "final",
+      "result": "W",
+      "for": 3,
+      "against": 1
+    },
+    {
+      "date": "2026-08-29",
+      "opponent": "Rollins",
+      "site": "away",
+      "location": "Winter Park, FL",
+      "conference": false,
+      "status": "final",
+      "result": "L",
+      "for": 1,
+      "against": 2
+    },
+    {
+      "date": "2026-09-06",
+      "opponent": "Lynn University",
+      "site": "home",
+      "location": "Emory, VA",
+      "conference": false,
+      "status": "final",
+      "result": "D",
+      "for": 1,
+      "against": 1
+    },
+    {
+      "date": "2026-09-09",
+      "opponent": "Chowan",
+      "site": "away",
+      "location": "Murfreesboro, NC",
+      "conference": false,
+      "status": "final",
+      "result": "D",
+      "for": 1,
+      "against": 1
+    },
+    {
+      "date": "2026-09-12",
+      "opponent": "Palm Beach Atlantic",
+      "site": "home",
+      "location": "Murfreesboro, NC",
+      "conference": false,
+      "status": "final",
+      "result": "D",
+      "for": 0,
+      "against": 0
+    },
+    {
+      "date": "2026-09-15",
+      "opponent": "Anderson University",
+      "site": "home",
+      "location": "Emory, Va.",
+      "conference": true,
+      "status": "final",
+      "result": "D",
+      "for": 2,
+      "against": 2
+    },
+    {
+      "date": "2026-09-19",
+      "opponent": "Catawba College",
+      "site": "away",
+      "location": "Salisbury, NC",
+      "conference": true,
+      "status": "scheduled",
+      "time": "3:30 PM"
+    },
+    {
+      "date": "2026-09-23",
+      "opponent": "Lenoir-Rhyne University",
+      "site": "away",
+      "location": "Hickory, N.C.",
+      "conference": true,
+      "status": "scheduled",
+      "time": "7:30 PM"
+    },
+    {
+      "date": "2026-09-26",
+      "opponent": "Coker University",
+      "site": "home",
+      "location": "Emory, VA",
+      "conference": true,
+      "status": "scheduled",
+      "time": "8:30 PM"
+    },
+    {
+      "date": "2026-09-29",
+      "opponent": "Mars Hill University",
+      "site": "away",
+      "location": "Mars Hill, N.C.",
+      "conference": true,
+      "status": "scheduled",
+      "time": "7:30 PM"
+    },
+    {
+      "date": "2026-10-03",
+      "opponent": "Carson-Newman University",
+      "site": "home",
+      "location": "Emory, VA",
+      "conference": true,
+      "status": "scheduled",
+      "time": "7:30 PM"
+    },
+    {
+      "date": "2026-10-07",
+      "opponent": "Lincoln Memorial University",
+      "site": "away",
+      "location": "Harrogate, TN",
+      "conference": true,
+      "status": "scheduled",
+      "time": "7:00 PM"
+    },
+    {
+      "date": "2026-10-17",
+      "opponent": "Newberry College",
+      "site": "home",
+      "location": "Emory, VA",
+      "conference": true,
+      "status": "scheduled",
+      "time": "TBA"
+    },
+    {
+      "date": "2026-10-24",
+      "opponent": "Wingate University",
+      "site": "away",
+      "location": "Wingate, N.C.",
+      "conference": true,
+      "status": "scheduled",
+      "time": "7:30 PM"
+    },
+    {
+      "date": "2026-10-28",
+      "opponent": "Tusculum University",
+      "site": "home",
+      "location": "Emory, Va.",
+      "conference": true,
+      "status": "scheduled",
+      "time": "7:30 PM"
+    }
+  ],
+  "standings": [
+    {
+      "team": "Catawba",
+      "conference": "2-0",
+      "points": 6,
+      "overall": "5-0-1",
+      "form": "W5"
+    },
+    {
+      "team": "Lincoln Memorial",
+      "conference": "2-0",
+      "points": 6,
+      "overall": "3-1-1",
+      "form": "W1"
+    },
+    {
+      "team": "Anderson",
+      "conference": "1-0-1",
+      "points": 4,
+      "overall": "4-0-2",
+      "form": "T1"
+    },
+    {
+      "team": "Carson-Newman",
+      "conference": "1-0-1",
+      "points": 4,
+      "overall": "2-1-2",
+      "form": "W1"
+    },
+    {
+      "team": "Emory & Henry",
+      "conference": "0-0-1",
+      "points": 1,
+      "overall": "1-1-4",
+      "form": "T4"
+    },
+    {
+      "team": "Coker",
+      "conference": "1-1",
+      "points": 3,
+      "overall": "2-2",
+      "form": "W1"
+    },
+    {
+      "team": "Lenoir-Rhyne",
+      "conference": "0-1-1",
+      "points": 1,
+      "overall": "0-4-2",
+      "form": "L2"
+    },
+    {
+      "team": "Wingate",
+      "conference": "0-1",
+      "points": 0,
+      "overall": "3-2",
+      "form": "W1"
+    },
+    {
+      "team": "Mars Hill",
+      "conference": "0-1",
+      "points": 0,
+      "overall": "2-2-2",
+      "form": "L1"
+    },
+    {
+      "team": "Tusculum",
+      "conference": "0-1",
+      "points": 0,
+      "overall": "1-3",
+      "form": "L1"
+    },
+    {
+      "team": "Newberry",
+      "conference": "0-2",
+      "points": 0,
+      "overall": "1-5",
+      "form": "W1"
+    }
+  ]
+}
