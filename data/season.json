@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-19T14:36:59Z",
+  "updatedAt": "2026-09-19T16:12:00Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "1-1-4",
@@ -14,14 +14,14 @@
   "player": {
     "name": "Niklas Borck",
     "number": 14,
-    "minutes": 117,
+    "minutes": 147,
     "starts": 2,
-    "appearances": 3,
+    "appearances": 5,
     "goals": 0,
     "assists": 0,
     "shots": 2,
     "shotsOnGoal": 1,
-    "verifiedThrough": "2026-09-09",
+    "verifiedThrough": "2026-09-15",
     "log": [
       {
         "date": "2026-08-27",
@@ -29,6 +29,8 @@
         "site": "away",
         "role": "Sub",
         "minutes": 21,
+        "goals": 0,
+        "assists": 0,
         "shots": 1,
         "shotsOnGoal": 1,
         "url": "https://floridatechsports.com/sports/mens-soccer/stats/2026/emory-henry-university/boxscore/17520"
@@ -39,6 +41,8 @@
         "site": "home",
         "role": "Start",
         "minutes": 73,
+        "goals": 0,
+        "assists": 0,
         "shots": 1,
         "shotsOnGoal": 0,
         "url": "https://lynnfightingknights.com/sports/mens-soccer/stats/2026/emory-henry/boxscore/10970"
@@ -49,9 +53,35 @@
         "site": "away",
         "role": "Start",
         "minutes": 23,
+        "goals": 0,
+        "assists": 0,
         "shots": 0,
         "shotsOnGoal": 0,
         "url": "https://gocuhawks.com/sports/mens-soccer/stats/2026/emory-henry-university/boxscore/12012"
+      },
+      {
+        "date": "2026-09-12",
+        "opponent": "Palm Beach Atlantic",
+        "site": "home",
+        "role": "Sub",
+        "minutes": 15,
+        "goals": 0,
+        "assists": 0,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "url": "https://pbasailfish.com/sports/mens-soccer/stats/2026/emory-henry/boxscore/8285"
+      },
+      {
+        "date": "2026-09-15",
+        "opponent": "Anderson University",
+        "site": "home",
+        "role": "Sub",
+        "minutes": 15,
+        "goals": 0,
+        "assists": 0,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "url": "https://autrojans.com/boxscore.aspx?id=6639"
       }
     ]
   },
@@ -109,7 +139,8 @@
       "status": "final",
       "result": "D",
       "for": 0,
-      "against": 0
+      "against": 0,
+      "boxScoreUrl": "https://pbasailfish.com/sports/mens-soccer/stats/2026/emory-henry/boxscore/8285"
     },
     {
       "date": "2026-09-15",
@@ -120,7 +151,8 @@
       "status": "final",
       "result": "D",
       "for": 2,
-      "against": 2
+      "against": 2,
+      "boxScoreUrl": "https://autrojans.com/boxscore.aspx?id=6639"
     },
     {
       "date": "2026-09-19",

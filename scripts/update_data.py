@@ -171,6 +171,8 @@ def parse_player_box(url: str, match: dict) -> dict | None:
         minute_value = next((mapping[key] for key in ("min", "minutes", "mp") if key in mapping), None)
         shot_value = next((mapping[key] for key in ("sh", "shots") if key in mapping), "0")
         sog_value = next((mapping[key] for key in ("sog", "shotsongoal") if key in mapping), "0")
+        goal_value = mapping.get("g", "0")
+        assist_value = mapping.get("a", "0")
         if minute_value and minute_value.isdigit():
             context = table.get_text(" ", strip=True).lower()
             return {
@@ -179,6 +181,8 @@ def parse_player_box(url: str, match: dict) -> dict | None:
                 "site": match["site"],
                 "role": "Sub" if "substitute" in context else "Start",
                 "minutes": int(minute_value),
+                "goals": int(goal_value) if goal_value.isdigit() else 0,
+                "assists": int(assist_value) if assist_value.isdigit() else 0,
                 "shots": int(shot_value) if shot_value.isdigit() else 0,
                 "shotsOnGoal": int(sog_value) if sog_value.isdigit() else 0,
                 "url": url,
@@ -206,6 +210,8 @@ def update_player(existing: dict, matches: list[dict]) -> dict:
         "minutes": sum(item.get("minutes", 0) for item in ordered),
         "starts": sum(item.get("role") == "Start" for item in ordered),
         "appearances": len(ordered),
+        "goals": sum(item.get("goals", 0) for item in ordered),
+        "assists": sum(item.get("assists", 0) for item in ordered),
         "shots": sum(item.get("shots", 0) for item in ordered),
         "shotsOnGoal": sum(item.get("shotsOnGoal", 0) for item in ordered),
         "verifiedThrough": ordered[-1]["date"] if ordered else existing.get("verifiedThrough"),

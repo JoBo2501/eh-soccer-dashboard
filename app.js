@@ -42,7 +42,7 @@ function renderPlayer(player, nextMatch) {
   const verified = player.verifiedThrough ? `Verified through ${fmtDate(player.verifiedThrough, "long")}` : "Awaiting official match sheets";
   $("#player-next").innerHTML = `
     <p><small>NEXT CHANCE TO WATCH</small><strong>${nextMatch ? `${nextMatch.site === "away" ? "at " : "vs "}${cleanOpponent(nextMatch.opponent)}` : "Season complete"}</strong></p>
-    <p><small>OFFICIAL SAMPLE</small><strong>${player.shots} shots · ${player.shotsOnGoal} SOG</strong><small>${verified}</small></p>`;
+    <p><small>OFFICIAL SAMPLE</small><strong>${player.goals} G · ${player.assists} A · ${player.shots} shots · ${player.shotsOnGoal} SOG</strong><small>${verified}</small></p>`;
 }
 
 function renderOpponents(matches) {
