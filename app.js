@@ -79,7 +79,9 @@ function renderBroadcasts(matches, broadcasts = {}) {
 
   $("#broadcast-list").innerHTML = conferenceMatches.map((match) => {
     const isFinal = match.status === "final";
-    const streamUrl = overrides[match.date] || broadcasts.defaultUrl || broadcasts.hubUrl;
+    const streamUrl = overrides[match.date]
+      || (isFinal ? broadcasts.hubUrl : broadcasts.defaultUrl)
+      || broadcasts.hubUrl;
     const action = isFinal ? "Open replay" : "Watch live";
     const availability = broadcasts.freeStatus || "No verified free stream";
     return `
