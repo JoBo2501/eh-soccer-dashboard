@@ -43,6 +43,12 @@ function renderPlayer(player, nextMatch) {
   $("#player-next").innerHTML = `
     <p><small>NEXT CHANCE TO WATCH</small><strong>${nextMatch ? `${nextMatch.site === "away" ? "at " : "vs "}${cleanOpponent(nextMatch.opponent)}` : "Season complete"}</strong></p>
     <p><small>OFFICIAL SAMPLE</small><strong>${player.goals} G · ${player.assists} A · ${player.shots} shots · ${player.shotsOnGoal} SOG</strong><small>${verified}</small></p>`;
+
+  $("#player-boxscores").innerHTML = [...(player.log || [])].reverse().map((match) => `
+    <a class="boxscore-row" href="${match.url}" target="_blank" rel="noreferrer" aria-label="Official box score: ${cleanOpponent(match.opponent)}, ${fmtDate(match.date, "long")}">
+      <span><time datetime="${match.date}">${fmtDate(match.date)}</time><strong>${cleanOpponent(match.opponent)}</strong></span>
+      <span>${match.role} · ${match.minutes} min <b aria-hidden="true">↗</b></span>
+    </a>`).join("");
 }
 
 function renderOpponents(matches) {

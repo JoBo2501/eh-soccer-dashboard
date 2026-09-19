@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-19T16:12:00Z",
+  "updatedAt": "2026-09-19T16:17:16Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "1-1-4",
@@ -95,7 +95,8 @@
       "status": "final",
       "result": "W",
       "for": 3,
-      "against": 1
+      "against": 1,
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260827_y820.xml"
     },
     {
       "date": "2026-08-29",
@@ -106,7 +107,8 @@
       "status": "final",
       "result": "L",
       "for": 1,
-      "against": 2
+      "against": 2,
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260829_pvwf.xml"
     },
     {
       "date": "2026-09-06",
@@ -117,7 +119,8 @@
       "status": "final",
       "result": "D",
       "for": 1,
-      "against": 1
+      "against": 1,
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260906_iwn5.xml"
     },
     {
       "date": "2026-09-09",
@@ -128,7 +131,8 @@
       "status": "final",
       "result": "D",
       "for": 1,
-      "against": 1
+      "against": 1,
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260909_t7cl.xml"
     },
     {
       "date": "2026-09-12",
@@ -140,7 +144,7 @@
       "result": "D",
       "for": 0,
       "against": 0,
-      "boxScoreUrl": "https://pbasailfish.com/sports/mens-soccer/stats/2026/emory-henry/boxscore/8285"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260912_kdee.xml"
     },
     {
       "date": "2026-09-15",
@@ -152,7 +156,7 @@
       "result": "D",
       "for": 2,
       "against": 2,
-      "boxScoreUrl": "https://autrojans.com/boxscore.aspx?id=6639"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260915_ir8r.xml"
     },
     {
       "date": "2026-09-19",

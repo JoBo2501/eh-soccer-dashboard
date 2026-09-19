@@ -25,7 +25,7 @@ No build command, server, API key, or database is required.
 
 ## Automatic updates
 
-The GitHub Action in `.github/workflows/update-season.yml` runs every six hours and can also be started manually from the Actions tab. It refreshes `data/season.json` from the official SAC schedule, standings and team statistics. When a newly completed game exposes a compatible official box score, the updater also looks for a verifiable Niklas Borck row.
+The GitHub Action in `.github/workflows/update-season.yml` runs every hour and can also be started manually from the Actions tab. It refreshes `data/season.json` from the official SAC schedule, standings and team statistics. It also discovers newly published official E&H box scores and verifies Niklas Borck's appearance, start, minutes, goals, assists, shots and shots on goal.
 
 The updater is deliberately conservative. If a page is unavailable or a player row cannot be mapped reliably, the last verified value remains in place rather than being replaced with incomplete data.
 
@@ -36,6 +36,7 @@ Official sources:
 - Team schedule: https://thesac.com/schedule.aspx?schedule=2504
 - SAC standings: https://thesac.com/standings.aspx?path=msoc
 - SAC statistics: https://thesac.com/stats.aspx?path=msoc&year=2026
+- E&H match sheets: https://www.gowasps.com/sports/msoc/2026-27/schedule
 - Niklas Borck updates: https://www.sofascore.com/football/player/niklas-borck/2722370
 
 ## Privacy

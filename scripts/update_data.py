@@ -21,7 +21,11 @@ DATA_FILE = ROOT / "data" / "season.json"
 SCHEDULE_URL = "https://thesac.com/schedule.aspx?schedule=2504"
 STANDINGS_URL = "https://thesac.com/standings.aspx?path=msoc"
 STATS_URL = "https://thesac.com/stats.aspx?path=msoc&year=2026"
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; EH-Soccer-Tracker/1.0)"}
+EH_SCHEDULE_URL = "https://www.gowasps.com/sports/msoc/2026-27/schedule"
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+}
 SAC_TEAMS = {
     "anderson", "carson-newman", "catawba", "coker", "lenoir-rhyne",
     "lincoln memorial", "mars hill", "newberry", "tusculum", "wingate",
@@ -29,7 +33,10 @@ SAC_TEAMS = {
 
 
 def fetch(url: str) -> BeautifulSoup:
-    response = requests.get(url, headers=HEADERS, timeout=30)
+    headers = dict(HEADERS)
+    if "gowasps.com" in url:
+        headers["Referer"] = EH_SCHEDULE_URL
+    response = requests.get(url, headers=headers, timeout=30)
     response.raise_for_status()
     return BeautifulSoup(response.text, "html.parser")
 
@@ -93,6 +100,26 @@ def parse_schedule(existing: list[dict]) -> list[dict]:
     if len(parsed) < 10:
         raise ValueError(f"Only {len(parsed)} schedule rows parsed")
     return parsed
+
+
+def add_eh_box_scores(matches: list[dict]) -> list[dict]:
+    """Attach official E&H box scores once a scheduled game becomes final."""
+    soup = fetch(EH_SCHEDULE_URL)
+    links_by_date = {}
+    for link in soup.select('a[href*="/boxscores/"]'):
+        if "box score" not in link.get_text(" ", strip=True).lower():
+            continue
+        match = re.search(r"/(20\d{6})_", link.get("href", ""))
+        if not match:
+            continue
+        raw = match.group(1)
+        date = f"{raw[:4]}-{raw[4:6]}-{raw[6:]}"
+        links_by_date[date] = urljoin(EH_SCHEDULE_URL, link["href"])
+
+    for match in matches:
+        if match["status"] == "final" and match["date"] in links_by_date:
+            match["boxScoreUrl"] = links_by_date[match["date"]]
+    return matches
 
 
 def parse_standings(existing: list[dict]) -> list[dict]:
@@ -187,6 +214,62 @@ def parse_player_box(url: str, match: dict) -> dict | None:
                 "shotsOnGoal": int(sog_value) if sog_value.isdigit() else 0,
                 "url": url,
             }
+
+    # PrestoSports box scores list SH/SOG/G/A in the player table and all
+    # substitutions in the play-by-play. The latter allows verified minutes.
+    for row in soup.select("tr"):
+        values = cells(row)
+        table = row.find_parent("table")
+        caption = table.find("caption") if table else None
+        if (
+            len(values) < 5
+            or "Borck" not in values[0]
+            or not caption
+            or "Emory & Henry" not in caption.get_text(" ", strip=True)
+        ):
+            continue
+
+        events = []
+        for event_row in soup.select("tr"):
+            event_values = cells(event_row)
+            if len(event_values) < 2 or "substitution" not in " ".join(event_values).lower():
+                continue
+            text = " ".join(event_values[1:])
+            if "Borck, Niklas" not in text:
+                continue
+            time_match = re.fullmatch(r"(\d+):(\d{2})", event_values[0])
+            if not time_match:
+                continue
+            elapsed = int(time_match.group(1)) + int(time_match.group(2)) / 60
+            action = "enter" if re.search(r"Borck, Niklas\s+for\b", text) else "exit"
+            events.append((elapsed, action))
+
+        events.sort()
+        starts = bool(events and events[0][1] == "exit")
+        on_field = starts
+        entered_at = 0.0 if starts else None
+        played = 0.0
+        for elapsed, action in events:
+            if action == "enter" and not on_field:
+                on_field, entered_at = True, elapsed
+            elif action == "exit" and on_field and entered_at is not None:
+                played += max(0, elapsed - entered_at)
+                on_field, entered_at = False, None
+        if on_field and entered_at is not None:
+            played += max(0, 90 - entered_at)
+
+        return {
+            "date": match["date"],
+            "opponent": match["opponent"],
+            "site": match["site"],
+            "role": "Start" if starts else "Sub",
+            "minutes": int(played + 0.5),
+            "goals": int(values[-2]) if values[-2].isdigit() else 0,
+            "assists": int(values[-1]) if values[-1].isdigit() else 0,
+            "shots": int(values[-4]) if values[-4].isdigit() else 0,
+            "shotsOnGoal": int(values[-3]) if values[-3].isdigit() else 0,
+            "url": url,
+        }
     return None
 
 
@@ -228,6 +311,7 @@ def main() -> None:
     successes = 0
     try:
         data["matches"] = parse_schedule(data["matches"])
+        data["matches"] = add_eh_box_scores(data["matches"])
         successes += 1
     except Exception as error:
         print(f"Schedule kept from prior update: {error}")
