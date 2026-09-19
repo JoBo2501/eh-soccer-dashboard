@@ -71,6 +71,36 @@ function renderOpponents(matches) {
     </div>`).join("");
 }
 
+function renderBroadcasts(matches, broadcasts = {}) {
+  const conferenceMatches = matches
+    .filter((match) => match.conference)
+    .sort((a, b) => a.date.localeCompare(b.date));
+  const overrides = broadcasts.overrides || {};
+
+  $("#broadcast-list").innerHTML = conferenceMatches.map((match) => {
+    const isFinal = match.status === "final";
+    const streamUrl = overrides[match.date] || broadcasts.defaultUrl || broadcasts.hubUrl;
+    const action = isFinal ? "Open replay" : "Watch live";
+    const availability = broadcasts.freeStatus || "No verified free stream";
+    return `
+      <article class="broadcast-card${!isFinal ? " upcoming" : ""}">
+        <header>
+          <div>
+            <time datetime="${match.date}">${fmtDate(match.date).toUpperCase()}</time>
+            <span>${match.site === "home" ? "HOME" : "AWAY"} · ${match.time || "FINAL"}</span>
+          </div>
+          <span class="broadcast-state ${isFinal ? "replay" : "live"}">${isFinal ? "REPLAY" : "LIVE"}</span>
+        </header>
+        <h3>${match.site === "away" ? "at " : "vs "}${cleanOpponent(match.opponent)}</h3>
+        <div class="broadcast-meta">
+          <span>${broadcasts.provider || "Official SAC video"}</span>
+          <small>${availability}</small>
+        </div>
+        <a class="broadcast-link" href="${streamUrl}" target="_blank" rel="noreferrer" aria-label="${action}: ${cleanOpponent(match.opponent)}">${action}<b aria-hidden="true">↗</b></a>
+      </article>`;
+  }).join("");
+}
+
 function renderResults(matches) {
   const completed = matches.filter((match) => match.status === "final").sort((a, b) => b.date.localeCompare(a.date));
   $("#results-body").innerHTML = completed.map((match) => `
@@ -97,7 +127,7 @@ function renderStandings(standings) {
 
 function render(data) {
   seasonData = data;
-  const { team, player, matches, standings } = data;
+  const { team, player, matches, standings, broadcasts } = data;
   const nextMatch = matches.find((match) => match.status !== "final");
   const scored = team.games ? team.goalsFor / team.games : 0;
   const conceded = team.games ? team.goalsAgainst / team.games : 0;
@@ -117,6 +147,7 @@ function render(data) {
   renderNextMatch(nextMatch);
   renderPlayer(player, nextMatch);
   renderOpponents(matches);
+  renderBroadcasts(matches, broadcasts);
   renderResults(matches);
   renderStandings(standings);
 

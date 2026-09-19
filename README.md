@@ -8,6 +8,7 @@ A small static web app for following the 2026 Emory & Henry men's soccer season,
 - overall and South Atlantic Conference records
 - recent team performance metrics
 - remaining SAC fixtures
+- official live-stream and replay links, with access requirements
 - current conference table
 - Niklas Borck player profile and verified match-sheet log
 - responsive light and dark themes
@@ -37,6 +38,7 @@ Official sources:
 - SAC standings: https://thesac.com/standings.aspx?path=msoc
 - SAC statistics: https://thesac.com/stats.aspx?path=msoc&year=2026
 - E&H match sheets: https://www.gowasps.com/sports/msoc/2026-27/schedule
+- SAC live video and replays: https://www.flofc.com/collections/7902803-south-atlantic-conference-mens-soccer
 - Niklas Borck updates: https://www.sofascore.com/football/player/niklas-borck/2722370
 
 ## Privacy

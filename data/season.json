@@ -85,6 +85,17 @@
       }
     ]
   },
+  "broadcasts": {
+    "provider": "SACLive · FloCollege",
+    "access": "subscription",
+    "replay": true,
+    "freeStatus": "No verified free stream",
+    "defaultUrl": "https://www.gowasps.com/links/4z9xgv",
+    "hubUrl": "https://www.flofc.com/collections/7902803-south-atlantic-conference-mens-soccer",
+    "overrides": {
+      "2026-09-19": "https://flosports.link/4yYsRcE"
+    }
+  },
   "matches": [
     {
       "date": "2026-08-27",
