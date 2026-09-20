@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="E and H Soccer">
+  <rect width="512" height="512" rx="112" fill="#0a0c0d"/>
+  <path d="M84 153h224l120 103-120 103H84l76-103-76-103Z" fill="#f5b91f"/>
+  <path d="M160 190h139l77 66-77 66H160l49-66-49-66Z" fill="#0a0c0d"/>
+  <path d="M236 190v132M300 198l-64 58 64 58" fill="none" stroke="#f5b91f" stroke-width="30" stroke-linecap="square" stroke-linejoin="miter"/>
+  <circle cx="416" cy="112" r="27" fill="#f4f1e9"/>
+  <path d="M416 97v30M401 112h30" stroke="#0a0c0d" stroke-width="8"/>
+</svg>

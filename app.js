@@ -5,6 +5,15 @@ let theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light
 let seasonData;
 
 const $ = (selector) => document.querySelector(selector);
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+      console.warn("App installation support unavailable:", error);
+    });
+  });
+}
+
 const fmtRecord = (value = "0-0-0") => value.replaceAll("-", "–");
 const cleanOpponent = (name = "") => name
   .replace(" University", "")
