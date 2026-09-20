@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-19T16:17:16Z",
+  "updatedAt": "2026-09-20T01:07:55Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "1-1-4",
@@ -271,13 +271,6 @@
       "form": "W5"
     },
     {
-      "team": "Lincoln Memorial",
-      "conference": "2-0",
-      "points": 6,
-      "overall": "3-1-1",
-      "form": "W1"
-    },
-    {
       "team": "Anderson",
       "conference": "1-0-1",
       "points": 4,
@@ -292,6 +285,13 @@
       "form": "W1"
     },
     {
+      "team": "Lincoln Memorial",
+      "conference": "2-1",
+      "points": 6,
+      "overall": "3-2-1",
+      "form": "L1"
+    },
+    {
       "team": "Emory & Henry",
       "conference": "0-0-1",
       "points": 1,
@@ -304,6 +304,13 @@
       "points": 3,
       "overall": "2-2",
       "form": "W1"
+    },
+    {
+      "team": "Newberry",
+      "conference": "1-2",
+      "points": 3,
+      "overall": "2-5",
+      "form": "W2"
     },
     {
       "team": "Lenoir-Rhyne",
@@ -332,13 +339,6 @@
       "points": 0,
       "overall": "1-3",
       "form": "L1"
-    },
-    {
-      "team": "Newberry",
-      "conference": "0-2",
-      "points": 0,
-      "overall": "1-5",
-      "form": "W1"
     }
   ]
 }
