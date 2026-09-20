@@ -41,6 +41,12 @@ def fetch(url: str) -> BeautifulSoup:
     return BeautifulSoup(response.text, "html.parser")
 
 
+def fetch_json(url: str) -> dict:
+    response = requests.get(url, headers=HEADERS, timeout=30)
+    response.raise_for_status()
+    return response.json()
+
+
 def cells(row) -> list[str]:
     return [" ".join(cell.get_text(" ", strip=True).split()) for cell in row.select("th,td")]
 
@@ -122,6 +128,88 @@ def add_eh_box_scores(matches: list[dict]) -> list[dict]:
     return matches
 
 
+def apply_sidearm_feeds(
+    matches: list[dict],
+    player: dict,
+    broadcasts: dict,
+) -> tuple[list[dict], dict]:
+    """Use official host-school data feeds when schedule pages lag behind."""
+    feeds = broadcasts.get("statsFeeds", {})
+    public_links = broadcasts.get("liveStats", {})
+    logs = {entry["date"]: entry for entry in player.get("log", [])}
+
+    for match in matches:
+        feed_url = feeds.get(match["date"])
+        if not feed_url:
+            continue
+        try:
+            payload = fetch_json(feed_url)
+            game = payload.get("Game", {})
+            feed_date = datetime.strptime(game.get("Date", ""), "%m/%d/%Y").date().isoformat()
+            if feed_date != match["date"] or not game.get("IsComplete"):
+                continue
+
+            visiting = game.get("VisitingTeam", {})
+            home = game.get("HomeTeam", {})
+            if "emory" in visiting.get("Name", "").lower():
+                team_side, opponent_side = "VisitingTeam", "HomeTeam"
+            elif "emory" in home.get("Name", "").lower():
+                team_side, opponent_side = "HomeTeam", "VisitingTeam"
+            else:
+                continue
+
+            goals_for = int(game[team_side].get("Score", 0))
+            goals_against = int(game[opponent_side].get("Score", 0))
+            match.update({
+                "status": "final",
+                "result": "W" if goals_for > goals_against else "L" if goals_for < goals_against else "D",
+                "for": goals_for,
+                "against": goals_against,
+                "boxScoreUrl": public_links.get(match["date"], match.get("boxScoreUrl", "")),
+            })
+
+            team_stats = payload.get("Stats", {}).get(team_side, {})
+            totals = team_stats.get("Totals", {}).get("Values", {})
+            match["shots"] = int(totals.get("Shots", 0))
+            match["corners"] = int(totals.get("Corners", 0))
+
+            for group_name, group in team_stats.get("PlayerGroups", {}).items():
+                for row in group.get("Values", []):
+                    if "borck" not in row.get("Name", "").lower():
+                        continue
+                    logs[match["date"]] = {
+                        "date": match["date"],
+                        "opponent": match["opponent"],
+                        "site": match["site"],
+                        "role": "Start" if group_name.lower() == "starters" else "Sub",
+                        "minutes": int(row.get("Minutes", 0)),
+                        "goals": int(row.get("Goals", 0)),
+                        "assists": int(row.get("Assists", 0)),
+                        "shots": int(row.get("Shots", 0)),
+                        "shotsOnGoal": int(row.get("OnGoal", 0)),
+                        "yellowCards": int(row.get("YellowCard", 0)),
+                        "url": public_links.get(match["date"], feed_url),
+                    }
+            print(f"Official live-stats result applied for {match['date']}")
+        except Exception as error:
+            print(f"Official live-stats feed skipped for {match['date']}: {error}")
+
+    ordered = sorted(logs.values(), key=lambda item: item["date"])
+    player.update({
+        "log": ordered,
+        "minutes": sum(item.get("minutes", 0) for item in ordered),
+        "starts": sum(item.get("role") == "Start" for item in ordered),
+        "appearances": len(ordered),
+        "goals": sum(item.get("goals", 0) for item in ordered),
+        "assists": sum(item.get("assists", 0) for item in ordered),
+        "shots": sum(item.get("shots", 0) for item in ordered),
+        "shotsOnGoal": sum(item.get("shotsOnGoal", 0) for item in ordered),
+        "yellowCards": sum(item.get("yellowCards", 0) for item in ordered),
+        "verifiedThrough": ordered[-1]["date"] if ordered else player.get("verifiedThrough"),
+    })
+    return matches, player
+
+
 def parse_standings(existing: list[dict]) -> list[dict]:
     soup = fetch(STANDINGS_URL)
     table = soup.select_one("table.sidearm-standings-table")
@@ -159,8 +247,11 @@ def parse_team_stats(existing: dict, matches: list[dict], standings: list[dict])
     for row in table.select("tbody tr"):
         values = cells(row)
         if len(values) >= 14 and "Emory & Henry" in values[1]:
+            source_games = int(values[2])
+            if source_games < int(team.get("games", 0)):
+                break
             team.update({
-                "games": int(values[2]),
+                "games": source_games,
                 "goalsFor": int(values[3]),
                 "goalsAgainst": int(values[4]),
                 "shots": int(values[10]),
@@ -180,6 +271,68 @@ def parse_team_stats(existing: dict, matches: list[dict], standings: list[dict])
         unbeaten += 1
     team["unbeatenRun"] = unbeaten
     return team
+
+
+def reconcile_team(team: dict, matches: list[dict], standings: list[dict]) -> tuple[dict, list[dict]]:
+    """Keep computed records current even while conference aggregate pages lag."""
+    finals = sorted(
+        (match for match in matches if match["status"] == "final"),
+        key=lambda match: match["date"],
+    )
+    prior_games = int(team.get("games", 0))
+    if len(finals) > prior_games:
+        for match in finals[prior_games:]:
+            if "shots" in match:
+                team["shots"] = int(team.get("shots", 0)) + int(match["shots"])
+            if "corners" in match:
+                team["corners"] = int(team.get("corners", 0)) + int(match["corners"])
+
+    def record(rows: list[dict]) -> str:
+        wins = sum(match["result"] == "W" for match in rows)
+        losses = sum(match["result"] == "L" for match in rows)
+        draws = sum(match["result"] == "D" for match in rows)
+        return f"{wins}-{losses}-{draws}"
+
+    conference_finals = [match for match in finals if match["conference"]]
+    team.update({
+        "games": len(finals),
+        "goalsFor": sum(match["for"] for match in finals),
+        "goalsAgainst": sum(match["against"] for match in finals),
+        "overall": record(finals),
+        "conference": record(conference_finals),
+    })
+    unbeaten = 0
+    for match in reversed(finals):
+        if match["result"] == "L":
+            break
+        unbeaten += 1
+    team["unbeatenRun"] = unbeaten
+
+    eh_row = next((row for row in standings if "Emory & Henry" in row["team"]), None)
+    if eh_row:
+        conference_wins = sum(match["result"] == "W" for match in conference_finals)
+        conference_draws = sum(match["result"] == "D" for match in conference_finals)
+        eh_row.update({
+            "conference": team["conference"],
+            "points": conference_wins * 3 + conference_draws,
+            "overall": team["overall"],
+            "form": f"{'W' if finals[-1]['result'] == 'W' else 'L' if finals[-1]['result'] == 'L' else 'T'}{unbeaten}",
+        })
+    return team, standings
+
+
+def validate_completed_dates(matches: list[dict]) -> None:
+    """Do not report a healthy refresh while a past match still lacks a result."""
+    today = datetime.now(timezone.utc).date()
+    stale = [
+        match
+        for match in matches
+        if datetime.fromisoformat(match["date"]).date() < today
+        and match.get("status") == "scheduled"
+    ]
+    if stale:
+        labels = ", ".join(f"{match['date']} vs {match['opponent']}" for match in stale)
+        raise RuntimeError(f"Past matches still awaiting verified results: {labels}")
 
 
 def parse_player_box(url: str, match: dict) -> dict | None:
@@ -297,6 +450,7 @@ def update_player(existing: dict, matches: list[dict]) -> dict:
         "assists": sum(item.get("assists", 0) for item in ordered),
         "shots": sum(item.get("shots", 0) for item in ordered),
         "shotsOnGoal": sum(item.get("shotsOnGoal", 0) for item in ordered),
+        "yellowCards": sum(item.get("yellowCards", 0) for item in ordered),
         "verifiedThrough": ordered[-1]["date"] if ordered else existing.get("verifiedThrough"),
     })
     return player
@@ -311,10 +465,18 @@ def main() -> None:
     successes = 0
     try:
         data["matches"] = parse_schedule(data["matches"])
-        data["matches"] = add_eh_box_scores(data["matches"])
         successes += 1
     except Exception as error:
         print(f"Schedule kept from prior update: {error}")
+    try:
+        data["matches"] = add_eh_box_scores(data["matches"])
+    except Exception as error:
+        print(f"E&H box-score discovery unavailable: {error}")
+    data["matches"], data["player"] = apply_sidearm_feeds(
+        data["matches"],
+        data["player"],
+        data.get("broadcasts", {}),
+    )
     try:
         data["standings"] = parse_standings(data["standings"])
         successes += 1
@@ -326,7 +488,13 @@ def main() -> None:
     except Exception as error:
         print(f"Team totals kept from prior update: {error}")
 
+    data["team"], data["standings"] = reconcile_team(
+        data["team"],
+        data["matches"],
+        data["standings"],
+    )
     data["player"] = update_player(data["player"], data["matches"])
+    validate_completed_dates(data["matches"])
     after = json.dumps(
         {key: value for key, value in data.items() if key != "updatedAt"},
         sort_keys=True,

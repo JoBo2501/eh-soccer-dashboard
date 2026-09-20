@@ -1,27 +1,27 @@
 {
-  "updatedAt": "2026-09-20T01:07:55Z",
+  "updatedAt": "2026-09-20T05:51:16Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
-    "overall": "1-1-4",
-    "conference": "0-0-1",
+    "overall": "1-1-5",
+    "conference": "0-0-2",
     "goalsFor": 8,
     "goalsAgainst": 7,
-    "games": 6,
-    "shots": 90,
-    "corners": 37,
-    "unbeatenRun": 4
+    "games": 7,
+    "shots": 98,
+    "corners": 46,
+    "unbeatenRun": 5
   },
   "player": {
     "name": "Niklas Borck",
     "number": 14,
-    "minutes": 147,
+    "minutes": 186,
     "starts": 2,
-    "appearances": 5,
+    "appearances": 6,
     "goals": 0,
     "assists": 0,
-    "shots": 2,
-    "shotsOnGoal": 1,
-    "verifiedThrough": "2026-09-15",
+    "shots": 3,
+    "shotsOnGoal": 2,
+    "verifiedThrough": "2026-09-19",
     "log": [
       {
         "date": "2026-08-27",
@@ -82,8 +82,22 @@
         "shots": 0,
         "shotsOnGoal": 0,
         "url": "https://autrojans.com/boxscore.aspx?id=6639"
+      },
+      {
+        "date": "2026-09-19",
+        "opponent": "Catawba College",
+        "site": "away",
+        "role": "Sub",
+        "minutes": 39,
+        "goals": 0,
+        "assists": 0,
+        "shots": 1,
+        "shotsOnGoal": 1,
+        "yellowCards": 1,
+        "url": "https://www.gowasps.com/links/03f1y5"
       }
-    ]
+    ],
+    "yellowCards": 1
   },
   "broadcasts": {
     "provider": "SACLive · FloCollege",
@@ -105,6 +119,11 @@
       "2026-10-17": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261017_2jbi.xml",
       "2026-10-24": "https://www.gowasps.com/links/yfn42o",
       "2026-10-28": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261028_e6ub.xml"
+    },
+    "statsFeeds": {
+      "2026-09-19": "https://sidearmstats.com/catawbac/msoc/game.json?detail=full",
+      "2026-09-23": "https://sidearmstats.com/lenoirrhyne/msoc/game.json?detail=full",
+      "2026-10-24": "https://sidearmstats.com/wingate/msoc/game.json?detail=full"
     }
   },
   "matches": [
@@ -186,8 +205,13 @@
       "site": "away",
       "location": "Salisbury, NC",
       "conference": true,
-      "status": "scheduled",
-      "time": "3:30 PM"
+      "status": "final",
+      "result": "D",
+      "for": 0,
+      "against": 0,
+      "boxScoreUrl": "https://www.gowasps.com/links/03f1y5",
+      "shots": 8,
+      "corners": 9
     },
     {
       "date": "2026-09-23",
@@ -264,25 +288,18 @@
   ],
   "standings": [
     {
-      "team": "Catawba",
-      "conference": "2-0",
-      "points": 6,
-      "overall": "5-0-1",
-      "form": "W5"
-    },
-    {
       "team": "Anderson",
-      "conference": "1-0-1",
-      "points": 4,
-      "overall": "4-0-2",
-      "form": "T1"
+      "conference": "2-0-1",
+      "points": 7,
+      "overall": "5-0-2",
+      "form": "W1"
     },
     {
-      "team": "Carson-Newman",
-      "conference": "1-0-1",
-      "points": 4,
-      "overall": "2-1-2",
-      "form": "W1"
+      "team": "Catawba",
+      "conference": "2-0-1",
+      "points": 7,
+      "overall": "5-0-2",
+      "form": "T1"
     },
     {
       "team": "Lincoln Memorial",
@@ -292,11 +309,18 @@
       "form": "L1"
     },
     {
+      "team": "Carson-Newman",
+      "conference": "1-1-1",
+      "points": 4,
+      "overall": "2-2-2",
+      "form": "L1"
+    },
+    {
       "team": "Emory & Henry",
-      "conference": "0-0-1",
-      "points": 1,
-      "overall": "1-1-4",
-      "form": "T4"
+      "conference": "0-0-2",
+      "points": 2,
+      "overall": "1-1-5",
+      "form": "T5"
     },
     {
       "team": "Coker",
