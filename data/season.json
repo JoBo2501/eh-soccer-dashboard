@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20T05:51:16Z",
+  "updatedAt": "2026-09-21T00:16:01Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "1-1-5",
@@ -338,17 +338,17 @@
     },
     {
       "team": "Lenoir-Rhyne",
-      "conference": "0-1-1",
-      "points": 1,
-      "overall": "0-4-2",
-      "form": "L2"
+      "conference": "0-1-2",
+      "points": 2,
+      "overall": "0-4-3",
+      "form": "T1"
     },
     {
       "team": "Wingate",
-      "conference": "0-1",
-      "points": 0,
-      "overall": "3-2",
-      "form": "W1"
+      "conference": "0-1-1",
+      "points": 1,
+      "overall": "3-2-1",
+      "form": "T1"
     },
     {
       "team": "Mars Hill",
