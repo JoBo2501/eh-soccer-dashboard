@@ -29,19 +29,26 @@ function applyTheme(nextTheme) {
   themeButton.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} mode`);
 }
 
-function renderNextMatch(match) {
+function renderNextMatch(match, lastMatch, broadcasts = {}) {
   const node = $("#next-match");
-  if (!match) {
-    node.innerHTML = `<div class="next-kicker"><i></i> SEASON COMPLETE</div><h2>All fixtures played</h2>`;
-    return;
-  }
+  const nextStatsUrl = match && (match.boxScoreUrl || broadcasts.liveStats?.[match.date]);
   node.innerHTML = `
-    <div class="next-kicker"><i></i> NEXT MATCH${match.conference ? " · SAC" : ""}</div>
-    <h2>${match.site === "away" ? "at " : "vs "}${cleanOpponent(match.opponent)}</h2>
-    <div class="next-meta"><span>${fmtDate(match.date)} · ${match.time || "TBA"} ET</span><span>${match.site === "home" ? "HOME" : "AWAY"}</span></div>`;
+    ${match ? `
+      <div class="next-kicker"><i></i> NEXT GAME${match.conference ? " · SAC" : ""}</div>
+      <h2>${match.site === "away" ? "at " : "vs "}${cleanOpponent(match.opponent)}</h2>
+      <div class="next-meta"><span>${fmtDate(match.date)} · ${match.time || "TBA"} ET</span><span>${match.site === "home" ? "HOME" : "AWAY"}</span></div>
+      ${nextStatsUrl ? `<a class="next-stats-link" href="${nextStatsUrl}" target="_blank" rel="noopener noreferrer">Line-ups &amp; live stats ↗</a>` : ""}` :
+      `<div class="next-kicker">SEASON COMPLETE</div><h2>All fixtures played</h2>`}
+    ${lastMatch ? `
+      <div class="last-game-hero">
+        <span class="last-game-label">LAST GAME · ${fmtDate(lastMatch.date).toUpperCase()}</span>
+        <div class="last-game-score"><strong>${lastMatch.site === "away" ? "at " : "vs "}${cleanOpponent(lastMatch.opponent)}</strong><b>${lastMatch.for}–${lastMatch.against}</b></div>
+        <div class="last-game-foot"><span>${lastMatch.result === "W" ? "WIN" : lastMatch.result === "L" ? "LOSS" : "DRAW"} · ${lastMatch.conference ? "SAC" : "NON-CONFERENCE"}</span>${lastMatch.boxScoreUrl ? `<a href="${lastMatch.boxScoreUrl}" target="_blank" rel="noopener noreferrer">Match details ↗</a>` : `<a href="#results">All results ↗</a>`}</div>
+      </div>` : ""}
+  `;
 }
 
-function renderPlayer(player, nextMatch) {
+function renderPlayer(player, nextMatch, lastMatch, broadcasts = {}) {
   $("#player-stats").innerHTML = [
     [player.minutes, "Minutes"],
     [player.starts, "Starts"],
@@ -49,8 +56,21 @@ function renderPlayer(player, nextMatch) {
   ].map(([value, label]) => `<div class="player-stat"><strong>${value}</strong><span>${label}</span></div>`).join("");
 
   const verified = player.verifiedThrough ? `Verified through ${fmtDate(player.verifiedThrough, "long")}` : "Awaiting official match sheets";
+  const nextStatsUrl = nextMatch && (nextMatch.boxScoreUrl || broadcasts.liveStats?.[nextMatch.date]);
+  const lastStatsUrl = lastMatch && (lastMatch.boxScoreUrl || broadcasts.liveStats?.[lastMatch.date]);
   $("#player-next").innerHTML = `
-    <p><small>NEXT CHANCE TO WATCH</small><strong>${nextMatch ? `${nextMatch.site === "away" ? "at " : "vs "}${cleanOpponent(nextMatch.opponent)}` : "Season complete"}</strong></p>
+    <div class="player-match-pair">
+      <div class="player-match-block">
+        <small>NEXT GAME · NEXT CHANCE TO WATCH</small>
+        <strong>${nextMatch ? `${nextMatch.site === "away" ? "at " : "vs "}${cleanOpponent(nextMatch.opponent)}` : "Season complete"}</strong>
+        ${nextMatch ? `<span>${fmtDate(nextMatch.date)} · ${nextMatch.time || "TBA"} ET</span><div class="player-match-links">${nextStatsUrl ? `<a href="${nextStatsUrl}" target="_blank" rel="noopener noreferrer">Line-ups &amp; live stats ↗</a>` : ""}${broadcasts.defaultUrl ? `<a href="${broadcasts.overrides?.[nextMatch.date] || broadcasts.defaultUrl}" target="_blank" rel="noopener noreferrer">Watch options ↗</a>` : ""}</div>` : ""}
+      </div>
+      ${lastMatch ? `<div class="player-match-block last">
+        <small>LAST GAME · ${fmtDate(lastMatch.date).toUpperCase()}</small>
+        <strong>${lastMatch.site === "away" ? "at " : "vs "}${cleanOpponent(lastMatch.opponent)} <span class="player-match-score">${lastMatch.for}–${lastMatch.against}</span></strong>
+        <div class="player-match-links">${lastStatsUrl ? `<a href="${lastStatsUrl}" target="_blank" rel="noopener noreferrer">Match details &amp; box score ↗</a>` : `<a href="#results">All results ↗</a>`}</div>
+      </div>` : ""}
+    </div>
     <p><small>OFFICIAL SAMPLE</small><strong>${player.goals} G · ${player.assists} A · ${player.shots} shots · ${player.shotsOnGoal} SOG</strong><small>${verified}</small><small class="headband-note"><i aria-hidden="true"></i>Headband: currently white <span>· photo observation</span></small></p>`;
 
   $("#player-boxscores").innerHTML = [...(player.log || [])].reverse().map((match) => `
@@ -145,6 +165,7 @@ function render(data) {
   seasonData = data;
   const { team, player, matches, standings, broadcasts } = data;
   const nextMatch = matches.find((match) => match.status !== "final");
+  const lastMatch = matches.filter((match) => match.status === "final").sort((a, b) => b.date.localeCompare(a.date))[0];
   const scored = team.games ? team.goalsFor / team.games : 0;
   const conceded = team.games ? team.goalsAgainst / team.games : 0;
   const maxRate = Math.max(scored, conceded, 1);
@@ -160,8 +181,8 @@ function render(data) {
   $("#bar-scored").style.setProperty("--bar", `${Math.max(8, scored / maxRate * 100)}%`);
   $("#bar-conceded").style.setProperty("--bar", `${Math.max(8, conceded / maxRate * 100)}%`);
 
-  renderNextMatch(nextMatch);
-  renderPlayer(player, nextMatch);
+  renderNextMatch(nextMatch, lastMatch, broadcasts);
+  renderPlayer(player, nextMatch, lastMatch, broadcasts);
   renderOpponents(matches);
   renderBroadcasts(matches, broadcasts);
   renderResults(matches);
