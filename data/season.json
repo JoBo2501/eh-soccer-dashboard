@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-24T15:05:26Z",
+  "updatedAt": "2026-09-26T01:32:42Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "2-1-5",
@@ -267,7 +267,7 @@
       "date": "2026-10-17",
       "opponent": "Newberry College",
       "site": "home",
-      "location": "Emory, VA",
+      "location": "Emory, VA.",
       "conference": true,
       "status": "scheduled",
       "time": "TBA"
