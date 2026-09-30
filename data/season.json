@@ -1,27 +1,27 @@
 {
-  "updatedAt": "2026-09-28T00:45:09Z",
+  "updatedAt": "2026-09-30T05:52:56Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
-    "overall": "3-1-5",
-    "conference": "2-0-2",
-    "goalsFor": 15,
+    "overall": "4-1-5",
+    "conference": "3-0-2",
+    "goalsFor": 17,
     "goalsAgainst": 9,
-    "games": 9,
-    "shots": 121,
-    "corners": 49,
-    "unbeatenRun": 7
+    "games": 10,
+    "shots": 135,
+    "corners": 53,
+    "unbeatenRun": 8
   },
   "player": {
     "name": "Niklas Borck",
     "number": 14,
-    "minutes": 186,
+    "minutes": 223,
     "starts": 2,
-    "appearances": 6,
+    "appearances": 8,
     "goals": 0,
-    "assists": 0,
-    "shots": 3,
+    "assists": 1,
+    "shots": 4,
     "shotsOnGoal": 2,
-    "verifiedThrough": "2026-09-19",
+    "verifiedThrough": "2026-09-29",
     "log": [
       {
         "date": "2026-08-27",
@@ -95,6 +95,30 @@
         "shotsOnGoal": 1,
         "yellowCards": 1,
         "url": "https://www.gowasps.com/links/03f1y5"
+      },
+      {
+        "date": "2026-09-26",
+        "opponent": "Coker University",
+        "site": "home",
+        "role": "Sub",
+        "minutes": 19,
+        "goals": 0,
+        "assists": 0,
+        "shots": 1,
+        "shotsOnGoal": 0,
+        "url": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260926_srj1.xml"
+      },
+      {
+        "date": "2026-09-29",
+        "opponent": "Mars Hill University",
+        "site": "away",
+        "role": "Sub",
+        "minutes": 18,
+        "goals": 0,
+        "assists": 1,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "url": "https://marshilllions.com/sports/msoc/2026-27/boxscores/20260929_c58w.xml"
       }
     ],
     "yellowCards": 1
@@ -119,6 +143,9 @@
       "2026-10-17": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261017_2jbi.xml",
       "2026-10-24": "https://www.gowasps.com/links/yfn42o",
       "2026-10-28": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261028_e6ub.xml"
+    },
+    "hostSchedules": {
+      "2026-09-29": "https://marshilllions.com/sports/msoc/2026-27/schedule"
     },
     "statsFeeds": {
       "2026-09-19": "https://sidearmstats.com/catawbac/msoc/game.json?detail=full",
@@ -236,7 +263,8 @@
       "status": "final",
       "result": "W",
       "for": 3,
-      "against": 1
+      "against": 1,
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260926_srj1.xml"
     },
     {
       "date": "2026-09-29",
@@ -244,8 +272,11 @@
       "site": "away",
       "location": "Mars Hill, N.C.",
       "conference": true,
-      "status": "scheduled",
-      "time": "7:30 PM"
+      "status": "final",
+      "result": "W",
+      "for": 2,
+      "against": 0,
+      "boxScoreUrl": "https://marshilllions.com/sports/msoc/2026-27/boxscores/20260929_c58w.xml"
     },
     {
       "date": "2026-10-03",
@@ -254,7 +285,8 @@
       "location": "Emory, VA",
       "conference": true,
       "status": "scheduled",
-      "time": "7:30 PM"
+      "time": "7:30 PM",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261003_unje.xml"
     },
     {
       "date": "2026-10-07",
@@ -263,7 +295,8 @@
       "location": "Harrogate, TN",
       "conference": true,
       "status": "scheduled",
-      "time": "7:00 PM"
+      "time": "7:00 PM",
+      "boxScoreUrl": "https://www.gowasps.com/links/185e9g"
     },
     {
       "date": "2026-10-17",
@@ -272,7 +305,8 @@
       "location": "Emory, VA.",
       "conference": true,
       "status": "scheduled",
-      "time": "TBA"
+      "time": "TBA",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261017_2jbi.xml"
     },
     {
       "date": "2026-10-24",
@@ -281,7 +315,8 @@
       "location": "Wingate, N.C.",
       "conference": true,
       "status": "scheduled",
-      "time": "7:30 PM"
+      "time": "7:30 PM",
+      "boxScoreUrl": "https://www.gowasps.com/links/yfn42o"
     },
     {
       "date": "2026-10-28",
@@ -290,10 +325,18 @@
       "location": "Emory, Va.",
       "conference": true,
       "status": "scheduled",
-      "time": "7:30 PM"
+      "time": "7:30 PM",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261028_e6ub.xml"
     }
   ],
   "standings": [
+    {
+      "team": "Emory & Henry",
+      "conference": "3-0-2",
+      "points": 11,
+      "overall": "4-1-5",
+      "form": "W8"
+    },
     {
       "team": "Catawba",
       "conference": "3-0-1",
@@ -309,18 +352,11 @@
       "form": "T1"
     },
     {
-      "team": "Emory & Henry",
-      "conference": "2-0-2",
-      "points": 8,
-      "overall": "3-1-5",
-      "form": "W7"
-    },
-    {
       "team": "Lincoln Memorial",
       "conference": "2-1-1",
       "points": 7,
-      "overall": "3-2-2",
-      "form": "T1"
+      "overall": "4-2-2",
+      "form": "W1"
     },
     {
       "team": "Carson-Newman",
@@ -345,10 +381,10 @@
     },
     {
       "team": "Mars Hill",
-      "conference": "1-2",
+      "conference": "1-3",
       "points": 3,
-      "overall": "3-3-2",
-      "form": "L1"
+      "overall": "3-4-2",
+      "form": "L2"
     },
     {
       "team": "Newberry",
@@ -371,5 +407,11 @@
       "overall": "1-4-1",
       "form": "L1"
     }
-  ]
+  ],
+  "checkedAt": "2026-09-30T05:52:56Z",
+  "refreshHealth": {
+    "status": "ok",
+    "sacDatasetsRefreshed": 3,
+    "message": ""
+  }
 }

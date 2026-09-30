@@ -3,6 +3,8 @@ const themeButton = document.querySelector("#theme-toggle");
 const refreshButton = document.querySelector("#refresh-data");
 let theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 let seasonData;
+let lastClientRefresh = 0;
+let loadingData = false;
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -139,10 +141,11 @@ function renderBroadcasts(matches, broadcasts = {}) {
 
 function renderResults(matches) {
   const completed = matches.filter((match) => match.status === "final").sort((a, b) => b.date.localeCompare(a.date));
+  const filter = document.querySelector("[data-filter].active")?.dataset.filter || "all";
   $("#results-body").innerHTML = completed.map((match) => `
-    <tr data-site="${match.site}">
+    <tr data-site="${match.site}"${filter !== "all" && match.site !== filter ? " hidden" : ""}>
       <td>${fmtDate(match.date)}</td>
-      <td>${cleanOpponent(match.opponent)}${match.conference ? '<small class="conference-tag">SAC</small>' : ""}</td>
+      <td>${match.boxScoreUrl ? `<a href="${match.boxScoreUrl}" target="_blank" rel="noopener noreferrer" aria-label="Match details: ${cleanOpponent(match.opponent)}, ${fmtDate(match.date)}">${cleanOpponent(match.opponent)} ↗</a>` : cleanOpponent(match.opponent)}${match.conference ? '<small class="conference-tag">SAC</small>' : ""}</td>
       <td>${match.location}</td>
       <td><span class="result-badge ${match.result}">${match.result}</span></td>
       <td class="score">${match.for}–${match.against}</td>
@@ -193,15 +196,38 @@ function render(data) {
   $("#rail-updated").textContent = label;
   $("#rail-status").textContent = "Auto-updated";
   $("#source-note").innerHTML = `Updated ${label} from <a href="${data.source}" target="_blank" rel="noreferrer">official SAC data ↗</a>`;
+  $("#source-note").classList.remove("data-error");
+  const easternDate = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const pending = matches.filter((match) => match.status === "scheduled" && match.date < easternDate);
+  const checkedAt = data.checkedAt || data.updatedAt;
+  const stale = Date.now() - new Date(checkedAt).getTime() > 12 * 60 * 60 * 1000;
+  const warning = $("#update-warning");
+  warning.hidden = !pending.length && !stale && data.refreshHealth?.status !== "partial";
+  if (!warning.hidden) {
+    warning.innerHTML = `${pending.length ? `Awaiting official results: ${pending.map((match) => `${cleanOpponent(match.opponent)} (${fmtDate(match.date)})`).join(", ")}.` : stale ? "The automatic source check is over 12 hours old." : "Some official sources could not be refreshed."} <a href="${data.source}" target="_blank" rel="noopener noreferrer">Check official results ↗</a>`;
+    $("#rail-status").textContent = pending.length ? "Result pending" : "Update delayed";
+  }
+  if (data.checkedAt) {
+    const checked = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" }).format(new Date(data.checkedAt));
+    $("#source-note").insertAdjacentHTML("beforeend", ` · Sources checked ${checked}`);
+  }
 }
 
 async function loadData({ fresh = false } = {}) {
+  if (loadingData) return;
+  loadingData = true;
   refreshButton.classList.toggle("refreshing", fresh);
   refreshButton.disabled = true;
   try {
-    const response = await fetch(`./data/season.json${fresh ? `?t=${Date.now()}` : ""}`, { cache: fresh ? "no-store" : "default" });
+    const response = await fetch("./data/season.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`Data request failed: ${response.status}`);
     render(await response.json());
+    lastClientRefresh = Date.now();
+    if (response.headers.get("X-EH-Offline") === "1") {
+      $("#rail-status").textContent = "Offline · saved data";
+      $("#update-warning").hidden = false;
+      $("#update-warning").textContent = "Offline: showing saved statistics. Results will refresh when your connection returns.";
+    }
   } catch (error) {
     $("#rail-status").textContent = "Last saved data";
     $("#source-note").classList.add("data-error");
@@ -210,6 +236,7 @@ async function loadData({ fresh = false } = {}) {
   } finally {
     refreshButton.classList.remove("refreshing");
     refreshButton.disabled = false;
+    loadingData = false;
   }
 }
 
@@ -235,4 +262,11 @@ document.querySelectorAll("[data-filter]").forEach((button) => {
   });
 });
 
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && Date.now() - lastClientRefresh > 60 * 1000) loadData({ fresh: true });
+});
+window.addEventListener("online", () => loadData({ fresh: true }));
+setInterval(() => {
+  if (!document.hidden) loadData({ fresh: true });
+}, 5 * 60 * 1000);
 loadData();

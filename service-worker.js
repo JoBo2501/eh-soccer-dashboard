@@ -1,4 +1,4 @@
-const CACHE_NAME = "eh-soccer-2026-v2";
+const CACHE_NAME = "eh-soccer-2026-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -30,30 +30,34 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(event.request.url);
   if (url.pathname.endsWith("/data/season.json")) {
+    const canonical = new URL("data/season.json", self.registration.scope).href;
     event.respondWith(
-      fetch(event.request)
+      fetch(event.request, { cache: "no-store" })
         .then((response) => {
+          if (!response.ok) throw new Error("Season refresh failed");
           const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(canonical, copy)));
           return response;
         })
-        .catch(() => caches.match(event.request))
+        .catch(async () => {
+          const saved = await caches.match(canonical);
+          if (!saved) throw new Error("No offline season data available");
+          const headers = new Headers(saved.headers);
+          headers.set("X-EH-Offline", "1");
+          return new Response(await saved.arrayBuffer(), { status: saved.status, headers });
+        })
     );
     return;
   }
 
   if (url.origin === self.location.origin) {
     event.respondWith(
-      caches.match(event.request).then((cached) => {
-        const network = fetch(event.request)
-          .then((response) => {
-            const copy = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-            return response;
-          })
-          .catch(() => cached);
-        return cached || network;
-      })
+      fetch(event.request, { cache: "no-cache" }).then((response) => {
+        if (!response.ok) throw new Error("App refresh failed");
+        const copy = response.clone();
+        event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy)));
+        return response;
+      }).catch(() => caches.match(event.request))
     );
   }
 });

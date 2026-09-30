@@ -12,6 +12,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin
+from zoneinfo import ZoneInfo
 
 import requests
 from bs4 import BeautifulSoup
@@ -101,6 +102,11 @@ def parse_schedule(existing: list[dict]) -> list[dict]:
             item["boxScoreUrl"] = urljoin(SCHEDULE_URL, box_link["href"])
         elif previous.get(date, {}).get("boxScoreUrl"):
             item["boxScoreUrl"] = previous[date]["boxScoreUrl"]
+        prior = previous.get(date, {})
+        if prior.get("status") == "final" and item["status"] != "final":
+            item = {**item, **prior}
+        elif prior:
+            item = {**prior, **item}
         parsed.append(item)
 
     if len(parsed) < 10:
@@ -323,7 +329,7 @@ def reconcile_team(team: dict, matches: list[dict], standings: list[dict]) -> tu
 
 def validate_completed_dates(matches: list[dict]) -> None:
     """Do not report a healthy refresh while a past match still lacks a result."""
-    today = datetime.now(timezone.utc).date()
+    today = datetime.now(ZoneInfo("America/New_York")).date()
     stale = [
         match
         for match in matches
@@ -333,6 +339,44 @@ def validate_completed_dates(matches: list[dict]) -> None:
     if stale:
         labels = ", ".join(f"{match['date']} vs {match['opponent']}" for match in stale)
         raise RuntimeError(f"Past matches still awaiting verified results: {labels}")
+
+
+def apply_host_schedules(matches: list[dict], broadcasts: dict) -> None:
+    """Read final score sheets linked by an official host-school schedule."""
+    for date, schedule_url in broadcasts.get("hostSchedules", {}).items():
+        match = next((item for item in matches if item["date"] == date), None)
+        if not match:
+            continue
+        try:
+            soup = fetch(schedule_url)
+            compact_date = date.replace("-", "")
+            for event in soup.select(".event-row[data-boxscore]"):
+                path = event.get("data-boxscore", "")
+                opponent = event.select_one(".event-opponent-name")
+                status = event.select_one(".status")
+                if compact_date not in path or not opponent or "emory" not in opponent.get_text().lower():
+                    continue
+                if not status or status.get_text(" ", strip=True).lower() != "final":
+                    continue
+                box_url = urljoin(schedule_url, path)
+                box = fetch(box_url)
+                scores = []
+                for row in box.select(".linescore tr"):
+                    name, total = row.select_one(".name"), row.select_one("td.total")
+                    if name and total:
+                        scores.append((name.get_text(" ", strip=True), int(total.get_text(strip=True))))
+                own = [score for name, score in scores if "emory" in name.lower()]
+                other = [score for name, score in scores if normalized_team(match["opponent"]) == normalized_team(name)]
+                if len(own) != 1 or len(other) != 1:
+                    raise ValueError("Final box-score teams could not be validated")
+                match.update({
+                    "status": "final", "for": own[0], "against": other[0],
+                    "result": "W" if own[0] > other[0] else "L" if own[0] < other[0] else "D",
+                    "boxScoreUrl": box_url,
+                })
+                print(f"Official host box score applied for {date}")
+        except Exception as error:
+            print(f"Host schedule unavailable for {date}: {error}")
 
 
 def parse_player_box(url: str, match: dict) -> dict | None:
@@ -431,6 +475,8 @@ def update_player(existing: dict, matches: list[dict]) -> dict:
     logs = {entry["date"]: entry for entry in existing.get("log", [])}
     for match in matches:
         url = match.get("boxScoreUrl")
+        if match["date"] in logs and url and "marshilllions.com" in url:
+            logs[match["date"]]["url"] = url
         if match["status"] != "final" or not url or match["date"] in logs:
             continue
         try:
@@ -459,7 +505,7 @@ def update_player(existing: dict, matches: list[dict]) -> dict:
 def main() -> None:
     data = json.loads(DATA_FILE.read_text())
     before = json.dumps(
-        {key: value for key, value in data.items() if key != "updatedAt"},
+        {key: value for key, value in data.items() if key not in ("updatedAt", "checkedAt", "refreshHealth")},
         sort_keys=True,
     )
     successes = 0
@@ -477,6 +523,13 @@ def main() -> None:
         data["player"],
         data.get("broadcasts", {}),
     )
+    apply_host_schedules(data["matches"], data.get("broadcasts", {}))
+    # Keep useful live-stat URLs even when E&H box-score discovery is blocked.
+    for match in data["matches"]:
+        if not match.get("boxScoreUrl"):
+            link = data.get("broadcasts", {}).get("liveStats", {}).get(match["date"])
+            if link:
+                match["boxScoreUrl"] = link
     try:
         data["standings"] = parse_standings(data["standings"])
         successes += 1
@@ -494,15 +547,28 @@ def main() -> None:
         data["standings"],
     )
     data["player"] = update_player(data["player"], data["matches"])
-    validate_completed_dates(data["matches"])
+    health_error = None
+    try:
+        validate_completed_dates(data["matches"])
+    except RuntimeError as error:
+        health_error = error
     after = json.dumps(
-        {key: value for key, value in data.items() if key != "updatedAt"},
+        {key: value for key, value in data.items() if key not in ("updatedAt", "checkedAt", "refreshHealth")},
         sort_keys=True,
     )
-    if successes and after != before:
+    if after != before:
         data["updatedAt"] = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    data["checkedAt"] = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    data["refreshHealth"] = {
+        "status": "awaiting-results" if health_error else "ok" if successes == 3 else "partial",
+        "sacDatasetsRefreshed": successes,
+        "message": str(health_error) if health_error else "",
+    }
     DATA_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
     print(f"Update complete: {successes}/3 official SAC datasets refreshed")
+    # Persist verified changes even if another game is still awaiting a result.
+    if health_error:
+        raise health_error
 
 
 if __name__ == "__main__":
