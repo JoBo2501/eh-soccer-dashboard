@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-30T05:52:56Z",
+  "updatedAt": "2026-09-30T22:14:12Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "4-1-5",
@@ -362,8 +362,8 @@
       "team": "Carson-Newman",
       "conference": "2-1-1",
       "points": 7,
-      "overall": "4-2-2",
-      "form": "W2"
+      "overall": "4-3-2",
+      "form": "L1"
     },
     {
       "team": "Coker",
@@ -408,7 +408,7 @@
       "form": "L1"
     }
   ],
-  "checkedAt": "2026-09-30T18:08:08Z",
+  "checkedAt": "2026-09-30T22:14:12Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
