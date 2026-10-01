@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-30T22:14:12Z",
+  "updatedAt": "2026-10-01T01:18:14Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "4-1-5",
@@ -341,8 +341,8 @@
       "team": "Catawba",
       "conference": "3-0-1",
       "points": 10,
-      "overall": "6-0-2",
-      "form": "W1"
+      "overall": "7-0-2",
+      "form": "W2"
     },
     {
       "team": "Anderson",
@@ -408,7 +408,7 @@
       "form": "L1"
     }
   ],
-  "checkedAt": "2026-09-30T22:14:12Z",
+  "checkedAt": "2026-10-01T01:18:14Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
