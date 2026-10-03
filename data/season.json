@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T05:46:22Z",
+  "updatedAt": "2026-10-03T21:46:01Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "4-1-5",
@@ -331,18 +331,18 @@
   ],
   "standings": [
     {
+      "team": "Catawba",
+      "conference": "4-0-1",
+      "points": 13,
+      "overall": "8-0-2",
+      "form": "W3"
+    },
+    {
       "team": "Emory & Henry",
       "conference": "3-0-2",
       "points": 11,
       "overall": "4-1-5",
       "form": "W8"
-    },
-    {
-      "team": "Catawba",
-      "conference": "3-0-1",
-      "points": 10,
-      "overall": "7-0-2",
-      "form": "W2"
     },
     {
       "team": "Lincoln Memorial",
@@ -390,15 +390,15 @@
       "team": "Newberry",
       "conference": "1-4",
       "points": 3,
-      "overall": "2-7",
-      "form": "L2"
+      "overall": "2-7-1",
+      "form": "T1"
     },
     {
       "team": "Wingate",
-      "conference": "0-2-2",
+      "conference": "0-3-2",
       "points": 2,
-      "overall": "3-3-2",
-      "form": "T1"
+      "overall": "3-4-2",
+      "form": "L1"
     },
     {
       "team": "Tusculum",
@@ -408,7 +408,7 @@
       "form": "L2"
     }
   ],
-  "checkedAt": "2026-10-03T18:41:01Z",
+  "checkedAt": "2026-10-03T21:46:01Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
