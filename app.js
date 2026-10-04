@@ -154,9 +154,9 @@ function renderResults(matches) {
 
 function renderStandings(standings) {
   $("#standings-body").innerHTML = standings.map((row, index) => `
-    <tr class="${row.team.includes("Emory") ? "team-row" : ""}">
+    <tr class="qualification-${index < 4 ? "home" : index < 8 ? "away" : "outside"} ${index === 4 || index === 8 ? "qualification-cutoff" : ""} ${row.team.includes("Emory") ? "team-row" : ""}">
       <td>${index + 1}</td>
-      <td>${row.team.includes("Emory") ? '<span class="team-dot"></span>' : ""}${row.team}</td>
+      <td>${row.team.includes("Emory") ? '<span class="team-dot"></span>' : ""}${row.team}<small class="qualification-label" lang="de">${index < 4 ? "SAC-Viertelfinale · Heimrecht" : index < 8 ? "SAC-Viertelfinale · auswärts" : "Außerhalb der SAC-Turnierplätze"}</small></td>
       <td>${fmtRecord(row.conference)}</td>
       <td>${row.points}</td>
       <td>${fmtRecord(row.overall)}</td>
