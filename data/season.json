@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T05:49:59Z",
+  "updatedAt": "2026-10-06T23:15:30Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "5-1-5",
@@ -386,8 +386,8 @@
       "team": "Mars Hill",
       "conference": "1-4",
       "points": 3,
-      "overall": "3-5-2",
-      "form": "L3"
+      "overall": "4-5-2",
+      "form": "W1"
     },
     {
       "team": "Newberry",
@@ -411,7 +411,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-10-06T19:31:47Z",
+  "checkedAt": "2026-10-06T23:15:30Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
