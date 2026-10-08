@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-08T01:19:40Z",
+  "updatedAt": "2026-10-08T07:58:54Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
-    "overall": "5-1-5",
-    "conference": "4-0-2",
-    "goalsFor": 18,
+    "overall": "6-1-5",
+    "conference": "5-0-2",
+    "goalsFor": 21,
     "goalsAgainst": 9,
-    "games": 11,
-    "shots": 145,
-    "corners": 61,
-    "unbeatenRun": 9
+    "games": 12,
+    "shots": 162,
+    "corners": 65,
+    "unbeatenRun": 10
   },
   "player": {
     "name": "Niklas Borck",
@@ -297,9 +297,12 @@
       "site": "away",
       "location": "Harrogate, TN",
       "conference": true,
-      "status": "scheduled",
+      "status": "final",
       "time": "7:00 PM",
-      "boxScoreUrl": "https://www.gowasps.com/links/185e9g"
+      "boxScoreUrl": "https://www.gowasps.com/links/185e9g",
+      "result": "W",
+      "for": 3,
+      "against": 0
     },
     {
       "date": "2026-10-17",
@@ -334,6 +337,13 @@
   ],
   "standings": [
     {
+      "team": "Emory & Henry",
+      "conference": "5-0-2",
+      "points": 17,
+      "overall": "6-1-5",
+      "form": "W10"
+    },
+    {
       "team": "Catawba",
       "conference": "5-0-1",
       "points": 16,
@@ -341,39 +351,32 @@
       "form": "W4"
     },
     {
-      "team": "Emory & Henry",
-      "conference": "4-0-2",
-      "points": 14,
-      "overall": "5-1-5",
-      "form": "W9"
-    },
-    {
-      "team": "Coker",
-      "conference": "4-2",
-      "points": 12,
-      "overall": "5-3",
-      "form": "W2"
-    },
-    {
       "team": "Anderson",
-      "conference": "3-0-2",
-      "points": 11,
-      "overall": "7-0-3",
-      "form": "W1"
+      "conference": "3-0-3",
+      "points": 12,
+      "overall": "7-0-4",
+      "form": "T1"
     },
     {
       "team": "Lincoln Memorial",
-      "conference": "3-1-1",
+      "conference": "3-2-1",
       "points": 10,
-      "overall": "5-2-2",
-      "form": "W2"
+      "overall": "5-3-2",
+      "form": "L1"
     },
     {
       "team": "Carson-Newman",
-      "conference": "2-2-1",
-      "points": 7,
-      "overall": "4-4-2",
-      "form": "L2"
+      "conference": "3-2-1",
+      "points": 10,
+      "overall": "5-4-2",
+      "form": "W1"
+    },
+    {
+      "team": "Coker",
+      "conference": "3-2",
+      "points": 9,
+      "overall": "4-3",
+      "form": "W1"
     },
     {
       "team": "Lenoir-Rhyne",
@@ -383,6 +386,13 @@
       "form": "L2"
     },
     {
+      "team": "Newberry",
+      "conference": "1-4-1",
+      "points": 4,
+      "overall": "2-7-2",
+      "form": "T2"
+    },
+    {
       "team": "Mars Hill",
       "conference": "1-4",
       "points": 3,
@@ -390,28 +400,21 @@
       "form": "W1"
     },
     {
-      "team": "Newberry",
-      "conference": "1-4",
-      "points": 3,
-      "overall": "2-7-1",
-      "form": "T1"
-    },
-    {
       "team": "Wingate",
-      "conference": "0-4-2",
+      "conference": "0-3-2",
       "points": 2,
-      "overall": "3-5-2",
-      "form": "L2"
+      "overall": "3-4-2",
+      "form": "L1"
     },
     {
       "team": "Tusculum",
-      "conference": "0-3-1",
+      "conference": "0-4-1",
       "points": 1,
-      "overall": "1-6-1",
-      "form": "L3"
+      "overall": "1-7-1",
+      "form": "L4"
     }
   ],
-  "checkedAt": "2026-10-08T01:19:40Z",
+  "checkedAt": "2026-10-08T07:58:54Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
