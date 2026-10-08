@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08T07:58:54Z",
+  "updatedAt": "2026-10-08T15:35:11Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "6-1-5",
@@ -358,6 +358,13 @@
       "form": "T1"
     },
     {
+      "team": "Coker",
+      "conference": "4-2",
+      "points": 12,
+      "overall": "5-3",
+      "form": "W2"
+    },
+    {
       "team": "Lincoln Memorial",
       "conference": "3-2-1",
       "points": 10,
@@ -369,13 +376,6 @@
       "conference": "3-2-1",
       "points": 10,
       "overall": "5-4-2",
-      "form": "W1"
-    },
-    {
-      "team": "Coker",
-      "conference": "3-2",
-      "points": 9,
-      "overall": "4-3",
       "form": "W1"
     },
     {
@@ -401,10 +401,10 @@
     },
     {
       "team": "Wingate",
-      "conference": "0-3-2",
+      "conference": "0-4-2",
       "points": 2,
-      "overall": "3-4-2",
-      "form": "L1"
+      "overall": "3-5-2",
+      "form": "L2"
     },
     {
       "team": "Tusculum",
@@ -414,7 +414,7 @@
       "form": "L4"
     }
   ],
-  "checkedAt": "2026-10-08T07:58:54Z",
+  "checkedAt": "2026-10-08T15:35:11Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
