@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14T05:24:48Z",
+  "updatedAt": "2026-10-14T19:42:10Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "6-1-5",
@@ -369,7 +369,7 @@
       "conference": "4-3",
       "points": 12,
       "overall": "5-4",
-      "form": "L1"
+      "form": "W1"
     },
     {
       "team": "Lincoln Memorial",
@@ -414,7 +414,7 @@
       "form": "T1"
     }
   ],
-  "checkedAt": "2026-10-14T15:30:02Z",
+  "checkedAt": "2026-10-14T19:42:10Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
