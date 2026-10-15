@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T05:54:11Z",
+  "updatedAt": "2026-10-15T15:44:04Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "6-1-5",
@@ -386,18 +386,18 @@
       "form": "W1"
     },
     {
-      "team": "Wingate",
-      "conference": "2-4-2",
-      "points": 8,
-      "overall": "5-5-2",
-      "form": "W2"
-    },
-    {
       "team": "Mars Hill",
       "conference": "2-4",
       "points": 6,
       "overall": "6-5-2",
       "form": "W3"
+    },
+    {
+      "team": "Wingate",
+      "conference": "1-4-2",
+      "points": 5,
+      "overall": "5-5-2",
+      "form": "W2"
     },
     {
       "team": "Newberry",
@@ -414,7 +414,7 @@
       "form": "T1"
     }
   ],
-  "checkedAt": "2026-10-15T11:25:59Z",
+  "checkedAt": "2026-10-15T15:44:04Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
