@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14T19:42:10Z",
+  "updatedAt": "2026-10-15T05:54:11Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "6-1-5",
@@ -337,18 +337,18 @@
   ],
   "standings": [
     {
+      "team": "Catawba",
+      "conference": "6-0-1",
+      "points": 19,
+      "overall": "10-0-2",
+      "form": "W5"
+    },
+    {
       "team": "Emory & Henry",
       "conference": "5-0-2",
       "points": 17,
       "overall": "6-1-5",
       "form": "W10"
-    },
-    {
-      "team": "Catawba",
-      "conference": "5-0-1",
-      "points": 16,
-      "overall": "9-0-2",
-      "form": "W4"
     },
     {
       "team": "Carson-Newman",
@@ -359,10 +359,10 @@
     },
     {
       "team": "Anderson",
-      "conference": "3-1-3",
+      "conference": "3-2-3",
       "points": 12,
-      "overall": "7-1-4",
-      "form": "L1"
+      "overall": "7-2-4",
+      "form": "L2"
     },
     {
       "team": "Coker",
@@ -386,18 +386,18 @@
       "form": "W1"
     },
     {
+      "team": "Wingate",
+      "conference": "2-4-2",
+      "points": 8,
+      "overall": "5-5-2",
+      "form": "W2"
+    },
+    {
       "team": "Mars Hill",
       "conference": "2-4",
       "points": 6,
       "overall": "6-5-2",
       "form": "W3"
-    },
-    {
-      "team": "Wingate",
-      "conference": "1-4-2",
-      "points": 5,
-      "overall": "4-5-2",
-      "form": "W1"
     },
     {
       "team": "Newberry",
@@ -414,7 +414,7 @@
       "form": "T1"
     }
   ],
-  "checkedAt": "2026-10-15T00:52:53Z",
+  "checkedAt": "2026-10-15T05:54:11Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
