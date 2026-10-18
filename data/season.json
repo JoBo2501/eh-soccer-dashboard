@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T15:44:04Z",
+  "updatedAt": "2026-10-18T01:32:19Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "6-1-5",
@@ -358,6 +358,13 @@
       "form": "W2"
     },
     {
+      "team": "Lincoln Memorial",
+      "conference": "4-2-1",
+      "points": 13,
+      "overall": "6-3-3",
+      "form": "W1"
+    },
+    {
       "team": "Anderson",
       "conference": "3-2-3",
       "points": 12,
@@ -366,17 +373,10 @@
     },
     {
       "team": "Coker",
-      "conference": "4-3",
+      "conference": "4-4",
       "points": 12,
-      "overall": "5-4",
-      "form": "W1"
-    },
-    {
-      "team": "Lincoln Memorial",
-      "conference": "3-2-1",
-      "points": 10,
-      "overall": "5-3-3",
-      "form": "T1"
+      "overall": "5-5",
+      "form": "L1"
     },
     {
       "team": "Lenoir-Rhyne",
@@ -414,7 +414,7 @@
       "form": "T1"
     }
   ],
-  "checkedAt": "2026-10-17T23:25:39Z",
+  "checkedAt": "2026-10-18T01:32:19Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
