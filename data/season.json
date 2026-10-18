@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T01:32:19Z",
+  "updatedAt": "2026-10-18T06:36:07Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "6-1-5",
@@ -7,8 +7,8 @@
     "goalsFor": 21,
     "goalsAgainst": 9,
     "games": 12,
-    "shots": 162,
-    "corners": 65,
+    "shots": 188,
+    "corners": 73,
     "unbeatenRun": 10
   },
   "player": {
@@ -414,10 +414,10 @@
       "form": "T1"
     }
   ],
-  "checkedAt": "2026-10-18T01:32:19Z",
+  "checkedAt": "2026-10-18T06:36:07Z",
   "refreshHealth": {
-    "status": "ok",
+    "status": "awaiting-results",
     "sacDatasetsRefreshed": 3,
-    "message": ""
+    "message": "Past matches still awaiting verified results: 2026-10-17 vs Newberry College"
   }
 }
