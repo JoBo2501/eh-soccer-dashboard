@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T20:40:12Z",
+  "updatedAt": "2026-10-18T22:36:47Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "6-1-5",
@@ -351,18 +351,18 @@
       "form": "W10"
     },
     {
+      "team": "Carson-Newman",
+      "conference": "5-2-1",
+      "points": 16,
+      "overall": "7-4-2",
+      "form": "W3"
+    },
+    {
       "team": "Anderson",
       "conference": "4-2-3",
       "points": 15,
       "overall": "8-2-4",
       "form": "W1"
-    },
-    {
-      "team": "Carson-Newman",
-      "conference": "4-2-1",
-      "points": 13,
-      "overall": "6-4-2",
-      "form": "W2"
     },
     {
       "team": "Lincoln Memorial",
@@ -394,10 +394,10 @@
     },
     {
       "team": "Wingate",
-      "conference": "1-4-2",
+      "conference": "1-5-2",
       "points": 5,
-      "overall": "5-5-2",
-      "form": "W2"
+      "overall": "5-6-2",
+      "form": "L1"
     },
     {
       "team": "Newberry",
@@ -414,7 +414,7 @@
       "form": "T1"
     }
   ],
-  "checkedAt": "2026-10-18T20:40:12Z",
+  "checkedAt": "2026-10-18T22:36:47Z",
   "refreshHealth": {
     "status": "awaiting-results",
     "sacDatasetsRefreshed": 3,
