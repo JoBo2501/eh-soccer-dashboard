@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T06:36:07Z",
+  "updatedAt": "2026-10-18T20:40:12Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "6-1-5",
@@ -351,6 +351,13 @@
       "form": "W10"
     },
     {
+      "team": "Anderson",
+      "conference": "4-2-3",
+      "points": 15,
+      "overall": "8-2-4",
+      "form": "W1"
+    },
+    {
       "team": "Carson-Newman",
       "conference": "4-2-1",
       "points": 13,
@@ -363,13 +370,6 @@
       "points": 13,
       "overall": "6-3-3",
       "form": "W1"
-    },
-    {
-      "team": "Anderson",
-      "conference": "3-2-3",
-      "points": 12,
-      "overall": "7-2-4",
-      "form": "L2"
     },
     {
       "team": "Coker",
@@ -387,10 +387,10 @@
     },
     {
       "team": "Mars Hill",
-      "conference": "2-4",
+      "conference": "2-5",
       "points": 6,
-      "overall": "6-5-2",
-      "form": "W3"
+      "overall": "6-6-2",
+      "form": "L1"
     },
     {
       "team": "Wingate",
@@ -414,7 +414,7 @@
       "form": "T1"
     }
   ],
-  "checkedAt": "2026-10-18T18:04:43Z",
+  "checkedAt": "2026-10-18T20:40:12Z",
   "refreshHealth": {
     "status": "awaiting-results",
     "sacDatasetsRefreshed": 3,
