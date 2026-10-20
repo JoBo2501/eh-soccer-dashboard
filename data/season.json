@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-19T00:30:41Z",
+  "updatedAt": "2026-10-20T22:40:11Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "7-1-5",
@@ -406,8 +406,8 @@
       "team": "Newberry",
       "conference": "1-6-1",
       "points": 4,
-      "overall": "2-9-2",
-      "form": "L2"
+      "overall": "2-10-2",
+      "form": "L3"
     },
     {
       "team": "Tusculum",
@@ -417,7 +417,7 @@
       "form": "W1"
     }
   ],
-  "checkedAt": "2026-10-20T19:35:22Z",
+  "checkedAt": "2026-10-20T22:40:11Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
