@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T22:40:11Z",
+  "updatedAt": "2026-10-21T23:17:27Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "7-1-5",
@@ -340,18 +340,18 @@
   ],
   "standings": [
     {
+      "team": "Catawba",
+      "conference": "7-0-1",
+      "points": 22,
+      "overall": "11-0-2",
+      "form": "W6"
+    },
+    {
       "team": "Emory & Henry",
       "conference": "6-0-2",
       "points": 20,
       "overall": "7-1-5",
       "form": "W11"
-    },
-    {
-      "team": "Catawba",
-      "conference": "6-0-1",
-      "points": 19,
-      "overall": "10-0-2",
-      "form": "W5"
     },
     {
       "team": "Carson-Newman",
@@ -369,10 +369,10 @@
     },
     {
       "team": "Lincoln Memorial",
-      "conference": "4-2-1",
+      "conference": "4-3-1",
       "points": 13,
-      "overall": "6-3-3",
-      "form": "W1"
+      "overall": "6-4-3",
+      "form": "L1"
     },
     {
       "team": "Coker",
@@ -417,7 +417,7 @@
       "form": "W1"
     }
   ],
-  "checkedAt": "2026-10-21T20:08:49Z",
+  "checkedAt": "2026-10-21T23:17:27Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
