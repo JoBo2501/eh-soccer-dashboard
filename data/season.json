@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T01:52:01Z",
+  "updatedAt": "2026-10-23T00:10:36Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "7-1-5",
@@ -378,7 +378,7 @@
       "team": "Coker",
       "conference": "4-4",
       "points": 12,
-      "overall": "5-5",
+      "overall": "6-5",
       "form": "L1"
     },
     {
@@ -417,7 +417,7 @@
       "form": "L1"
     }
   ],
-  "checkedAt": "2026-10-22T21:33:53Z",
+  "checkedAt": "2026-10-23T00:10:36Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
