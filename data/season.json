@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T05:19:07Z",
+  "updatedAt": "2026-10-25T23:15:13Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "8-1-5",
@@ -354,6 +354,15 @@
       "status": "scheduled",
       "time": "7:30 PM",
       "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261028_e6ub.xml"
+    },
+    {
+      "date": "2026-10-31",
+      "opponent": "SAC Quarterfinal",
+      "site": "home",
+      "location": "Emory, VA",
+      "conference": false,
+      "status": "scheduled",
+      "time": "TBA"
     }
   ],
   "standings": [
@@ -435,7 +444,7 @@
       "form": "L2"
     }
   ],
-  "checkedAt": "2026-10-25T20:49:07Z",
+  "checkedAt": "2026-10-25T23:15:13Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
