@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T09:43:58Z",
+  "updatedAt": "2026-11-01T16:24:39Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "9-1-6",
@@ -369,6 +369,15 @@
       "result": "D",
       "for": 1,
       "against": 1
+    },
+    {
+      "date": "2026-11-06",
+      "opponent": "Coker University",
+      "site": "home",
+      "location": "Matthews, N.C. / Matthews Sportsplex",
+      "conference": true,
+      "status": "scheduled",
+      "time": "TBA"
     }
   ],
   "standings": [
@@ -450,7 +459,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-01T09:43:58Z",
+  "checkedAt": "2026-11-01T16:24:39Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
