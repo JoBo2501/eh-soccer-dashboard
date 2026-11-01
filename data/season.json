@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T02:37:37Z",
+  "updatedAt": "2026-11-01T09:43:58Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "9-1-6",
@@ -383,8 +383,8 @@
       "team": "Catawba",
       "conference": "8-1-1",
       "points": 25,
-      "overall": "12-1-2",
-      "form": "L1"
+      "overall": "13-1-2",
+      "form": "W1"
     },
     {
       "team": "Anderson",
@@ -418,8 +418,8 @@
       "team": "Mars Hill",
       "conference": "4-5-1",
       "points": 13,
-      "overall": "8-6-3",
-      "form": "W1"
+      "overall": "8-7-3",
+      "form": "L1"
     },
     {
       "team": "Lenoir-Rhyne",
@@ -450,7 +450,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-01T02:37:37Z",
+  "checkedAt": "2026-11-01T09:43:58Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
