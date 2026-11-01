@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-29T07:02:07Z",
+  "updatedAt": "2026-11-01T02:37:37Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
-    "overall": "9-1-5",
-    "conference": "8-0-2",
-    "goalsFor": 29,
-    "goalsAgainst": 9,
-    "games": 15,
-    "shots": 223,
-    "corners": 87,
-    "unbeatenRun": 13
+    "overall": "9-1-6",
+    "conference": "8-0-3",
+    "goalsFor": 30,
+    "goalsAgainst": 10,
+    "games": 16,
+    "shots": 245,
+    "corners": 99,
+    "unbeatenRun": 14
   },
   "player": {
     "name": "Niklas Borck",
@@ -364,17 +364,20 @@
       "site": "home",
       "location": "Emory, VA",
       "conference": true,
-      "status": "scheduled",
-      "time": "TBA"
+      "status": "final",
+      "time": "TBA",
+      "result": "D",
+      "for": 1,
+      "against": 1
     }
   ],
   "standings": [
     {
       "team": "Emory & Henry",
-      "conference": "8-0-2",
-      "points": 26,
-      "overall": "9-1-5",
-      "form": "W13"
+      "conference": "8-0-3",
+      "points": 27,
+      "overall": "9-1-6",
+      "form": "T14"
     },
     {
       "team": "Catawba",
@@ -387,29 +390,29 @@
       "team": "Anderson",
       "conference": "5-2-3",
       "points": 18,
-      "overall": "9-2-4",
-      "form": "W2"
+      "overall": "10-2-4",
+      "form": "W3"
     },
     {
       "team": "Carson-Newman",
       "conference": "5-3-2",
       "points": 17,
-      "overall": "7-5-3",
-      "form": "T1"
+      "overall": "7-5-4",
+      "form": "T2"
     },
     {
       "team": "Coker",
       "conference": "5-4-1",
       "points": 16,
-      "overall": "7-5-1",
-      "form": "W1"
+      "overall": "7-5-2",
+      "form": "T1"
     },
     {
       "team": "Lincoln Memorial",
       "conference": "4-4-2",
       "points": 14,
-      "overall": "6-5-4",
-      "form": "T1"
+      "overall": "6-6-4",
+      "form": "L1"
     },
     {
       "team": "Mars Hill",
@@ -422,8 +425,8 @@
       "team": "Lenoir-Rhyne",
       "conference": "2-6-2",
       "points": 8,
-      "overall": "2-9-3",
-      "form": "L2"
+      "overall": "2-9-4",
+      "form": "T1"
     },
     {
       "team": "Wingate",
@@ -447,7 +450,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-10-31T23:45:03Z",
+  "checkedAt": "2026-11-01T02:37:37Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
