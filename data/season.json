@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-11-01T16:24:39Z",
+  "updatedAt": "2026-11-06T23:30:49Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
-    "overall": "9-1-6",
-    "conference": "8-0-3",
-    "goalsFor": 30,
-    "goalsAgainst": 10,
-    "games": 16,
-    "shots": 245,
-    "corners": 99,
-    "unbeatenRun": 14
+    "overall": "10-1-6",
+    "conference": "9-0-3",
+    "goalsFor": 32,
+    "goalsAgainst": 11,
+    "games": 17,
+    "shots": 266,
+    "corners": 108,
+    "unbeatenRun": 15
   },
   "player": {
     "name": "Niklas Borck",
@@ -376,6 +376,18 @@
       "site": "home",
       "location": "Matthews, N.C. / Matthews Sportsplex",
       "conference": true,
+      "status": "final",
+      "time": "TBA",
+      "result": "W",
+      "for": 2,
+      "against": 1
+    },
+    {
+      "date": "2026-11-08",
+      "opponent": "Catawba College",
+      "site": "home",
+      "location": "Matthews, N.C. / Matthews Sportsplex",
+      "conference": true,
       "status": "scheduled",
       "time": "TBA"
     }
@@ -383,24 +395,24 @@
   "standings": [
     {
       "team": "Emory & Henry",
-      "conference": "8-0-3",
-      "points": 27,
-      "overall": "9-1-6",
-      "form": "T14"
+      "conference": "9-0-3",
+      "points": 30,
+      "overall": "10-1-6",
+      "form": "W15"
     },
     {
       "team": "Catawba",
       "conference": "8-1-1",
       "points": 25,
-      "overall": "13-1-2",
-      "form": "W1"
+      "overall": "14-1-2",
+      "form": "W2"
     },
     {
       "team": "Anderson",
       "conference": "5-2-3",
       "points": 18,
-      "overall": "10-2-4",
-      "form": "W3"
+      "overall": "10-3-4",
+      "form": "L1"
     },
     {
       "team": "Carson-Newman",
@@ -413,8 +425,8 @@
       "team": "Coker",
       "conference": "5-4-1",
       "points": 16,
-      "overall": "7-5-2",
-      "form": "T1"
+      "overall": "7-6-2",
+      "form": "L1"
     },
     {
       "team": "Lincoln Memorial",
@@ -459,7 +471,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-06T18:28:39Z",
+  "checkedAt": "2026-11-06T23:30:49Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
