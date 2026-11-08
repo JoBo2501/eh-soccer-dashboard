@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-11-06T23:30:49Z",
+  "updatedAt": "2026-11-08T22:29:00Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
-    "overall": "10-1-6",
-    "conference": "9-0-3",
-    "goalsFor": 32,
-    "goalsAgainst": 11,
-    "games": 17,
-    "shots": 266,
-    "corners": 108,
-    "unbeatenRun": 15
+    "overall": "11-1-6",
+    "conference": "10-0-3",
+    "goalsFor": 36,
+    "goalsAgainst": 14,
+    "games": 18,
+    "shots": 285,
+    "corners": 110,
+    "unbeatenRun": 16
   },
   "player": {
     "name": "Niklas Borck",
@@ -388,24 +388,27 @@
       "site": "home",
       "location": "Matthews, N.C. / Matthews Sportsplex",
       "conference": true,
-      "status": "scheduled",
-      "time": "TBA"
+      "status": "final",
+      "time": "TBA",
+      "result": "W",
+      "for": 4,
+      "against": 3
     }
   ],
   "standings": [
     {
       "team": "Emory & Henry",
-      "conference": "9-0-3",
-      "points": 30,
-      "overall": "10-1-6",
-      "form": "W15"
+      "conference": "10-0-3",
+      "points": 33,
+      "overall": "11-1-6",
+      "form": "W16"
     },
     {
       "team": "Catawba",
       "conference": "8-1-1",
       "points": 25,
-      "overall": "14-1-2",
-      "form": "W2"
+      "overall": "14-2-2",
+      "form": "L1"
     },
     {
       "team": "Anderson",
@@ -471,7 +474,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-08T18:29:57Z",
+  "checkedAt": "2026-11-08T22:29:00Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
