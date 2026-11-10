@@ -40,7 +40,7 @@
           <button class="nav-link" data-scroll="watch"><span>03</span> Watch</button>
           <button class="nav-link" data-scroll="results"><span>04</span> Results</button>
           <button class="nav-link" data-scroll="standings"><span>05</span> SAC table</button>
-          <button class="nav-link" data-scroll="postseason"><span>06</span> Road to the final</button>
+          <button class="nav-link" data-scroll="postseason"><span>06</span> NCAA run</button>
         </nav>
         <div class="rail-status">
           <span class="status-light"></span>
@@ -75,8 +75,13 @@
         <section class="season-hero" id="overview" aria-labelledby="page-title">
           <div class="hero-copy">
             <p class="eyebrow">2026 · THE WASPS</p>
-            <h1 id="page-title">Every match.<br><span>Every moment.</span></h1>
-            <p>Emory &amp; Henry's SAC campaign, tracked from the final whistle to the next kickoff.</p>
+            <h1 id="page-title">SAC-Doppeltitel.<br><span>NCAA-Turnier.</span></h1>
+            <p>Emory & Henry hat die reguläre SAC-Saison und das SAC-Turnier gewonnen. Jetzt läuft die nationale NCAA-Division-II-Meisterschaft.</p>
+            <div class="hero-badges" lang="de">
+              <span>SAC-Meister</span>
+              <span>SAC-Turniersieger</span>
+              <span>NCAA-Seed 3</span>
+            </div>
             <div class="hero-record">
               <div><span>Overall</span><strong id="overall-record">1–1–4</strong></div>
               <div><span>SAC</span><strong id="conference-record">0–0–1</strong></div>
@@ -134,12 +139,12 @@
 
         <section class="section-block" id="schedule" aria-labelledby="schedule-title">
           <div class="section-heading">
-            <div><p class="eyebrow">ROAD AHEAD</p><h2 id="schedule-title">Next three opponents</h2></div>
+            <div><p class="eyebrow">NCAA RUN</p><h2 id="schedule-title">Next opponent</h2></div>
             <a class="text-link" href="https://thesac.com/schedule.aspx?schedule=2504" target="_blank" rel="noreferrer">Official schedule ↗</a>
           </div>
           <div class="opponent-row" id="next-opponents"></div>
           <article class="list-panel">
-            <header><div><p class="eyebrow">CONFERENCE SCHEDULE</p><h3>Remaining SAC matches</h3></div><span id="fixture-count"></span></header>
+            <header><div><p class="eyebrow">POSTSEASON</p><h3>Remaining NCAA fixtures</h3></div><span id="fixture-count"></span></header>
             <div class="fixtures-list" id="fixtures-list"></div>
             <footer>Venue-local time (ET). Schedule changes sync automatically.</footer>
           </article>
@@ -152,11 +157,11 @@
           </div>
           <div class="watch-intro">
             <span class="watch-signal" aria-hidden="true"><i></i></span>
-            <p><strong>Official SAC coverage</strong><span>Live video and on-demand replays via FloCollege. Free, no-login video is shown first whenever an official option is announced.</span></p>
+            <p><strong>Saison- und Turnierübertragungen</strong><span>SAC-Spiele laufen über FloCollege. Für das NCAA-Spiel am 15. November ist noch kein kostenloser Offizieller Stream bestätigt; offizielle Live-Stats sind verlinkt.</span></p>
             <span class="access-pill">SUBSCRIPTION</span>
           </div>
           <div class="broadcast-grid" id="broadcast-list" aria-live="polite"></div>
-          <p class="watch-footnote">Stream availability can change close to kickoff. Official line-ups are normally added to live stats shortly before the match; the button remains useful for minute-by-minute updates and the final box score.</p>
+          <p class="watch-footnote" lang="de">Streamangebote ändern sich kurz vor Anpfiff manchmal. Offizielle Aufstellungen erscheinen üblicherweise erst kurz vor Spielbeginn in den Live-Stats; der Link bleibt dann für Spielverlauf und offizielles Box Score nutzbar.</p>
         </section>
 
         <section class="section-block" id="results" aria-labelledby="results-title">
@@ -194,45 +199,54 @@
           </div>
           <p class="source-note" id="source-note">Official SAC data. Loading latest update…</p>
           <aside class="qualification-guide" lang="de" aria-labelledby="qualification-title">
-            <p class="eyebrow">SO FUNKTIONIERT DIE QUALIFIKATION</p>
-            <h3 id="qualification-title">Tabelle, SAC-Turnier und NCAA</h3>
-            <p id="qualification-note">Die Farben zeigen, was die Plätze <strong>am Ende der Conference-Saison</strong> bedeuten. Während der Saison sind sie eine Orientierung, keine bereits gesicherte Qualifikation. Für diese Tabelle zählen die SAC-Spiele; „Overall“ umfasst auch Spiele außerhalb der Conference.</p>
+            <p class="eyebrow">SAC-ABSCHLUSSTABELLE</p>
+            <h3 id="qualification-title">Was die Tabelle jetzt bedeutet</h3>
+            <p>Die reguläre SAC-Saison ist beendet. Emory & Henry hat mit 8-0-2 und 26 Punkten den ersten Conference-Titel der Programmgeschichte gewonnen. Turnierspiele gehen nicht in diese Tabelle ein; „Overall“ umfasst alle Spiele inklusive SAC-Turnier.</p>
             <dl>
-              <div><dt>Platz 1: Titel der regulären Saison</dt><dd>Der Tabellenführer gewinnt die reguläre SAC-Saison. Dieser Titel ist vom Sieg im anschließenden K.-o.-Turnier getrennt. <a href="https://thesac.com/sports/2026/9/10/pastchamps.aspx" target="_blank" rel="noopener noreferrer">SAC-Titelübersicht ↗</a></dd></div>
-              <div><dt>Plätze 1–8: SAC-Conference-Turnier</dt><dd>Im Viertelfinale spielt 1 gegen 8, 2 gegen 7, 3 gegen 6 und 4 gegen 5. Die Plätze 1–4 haben Heimrecht, die Plätze 5–8 spielen auswärts. Ab Platz 9 gibt es keinen SAC-Turnierplatz. Die Viertelfinals finden am 31. Oktober / 1. November statt, das Halbfinale am 6. November und das Finale am 8. November 2026. <a href="https://thesac.com/documents/2026/7/29//2026_Men_s_Soccer_Bracket.pdf?id=457" target="_blank" rel="noopener noreferrer">Offizieller Turnierplan 2026 ↗</a> · <a href="https://lrbears.com/sports/mens-soccer/schedule/2026" target="_blank" rel="noopener noreferrer">Heimrecht der höheren Setzposition ↗</a></dd></div>
-              <div><dt>NCAA: separate nationale Meisterschaft</dt><dd>Es gibt keine feste Zahl von NCAA-Plätzen für die bestplatzierten SAC-Teams. Die SAC besitzt einen automatischen Startplatz; zuletzt erhielt ihn der SAC-Turniersieger. Weitere Teams können über die nationale Auswahl („at-large“) anhand des NCAA Power Index und weiterer Kriterien aufgenommen werden. Auch ein Platz außerhalb der SAC-Turnierplätze ist daher nicht automatisch ein NCAA-Ausschluss. <a href="https://ncaaorg.s3.amazonaws.com/championships/sports/soccer/d2/men/2026-27D2MSO_PreChampsManual.pdf" target="_blank" rel="noopener noreferrer">NCAA-Regeln 2026–27 ↗</a> · <a href="https://lmurailsplitters.com/news/2025/11/16/mens-soccer-claims-2025-sac-tournament-championshiptitle-with-shutout-over-lenoir-rhyne.aspx" target="_blank" rel="noopener noreferrer">SAC-Turniersieg &amp; NCAA-Startplatz 2025 ↗</a></dd></div>
+              <div><dt>Platz 1: Titel der regulären Saison</dt><dd>Emory & Henry hat den Titel am 28. Oktober mit einem 2:0 gegen Tusculum perfekt gemacht. <a href="https://thesac.com/news/2026/10/29/emory-henry-claims-first-sac-mens-soccer-regular-season-title-tournament-field-set.aspx" target="_blank" rel="noopener noreferrer">SAC-Meldung ↗</a></dd></div>
+              <div><dt>SAC-Turnier: ebenfalls E&H</dt><dd>Die Wasps haben Viertelfinale, Halbfinale und Finale gewonnen. Der 4:3-Finalerfolg nach zwei Verlängerungen gegen Catawba brachte den ersten SAC-Turniertitel und den automatischen NCAA-Startplatz. <a href="https://thesac.com/news/2026/11/7/emory-henry-and-catawba-advance-to-sac-mens-soccer-championship-final.aspx" target="_blank" rel="noopener noreferrer">SAC-Turnierverlauf ↗</a></dd></div>
+              <div><dt>NCAA: Super Region 2, Seed 3</dt><dd>Emory & Henry ist in der nationalen Auswahl auf Position 3 der Super Region 2 gesetzt und empfängt Lees-McRae. Der Seed 3 bedeutet ein Freilos in der ersten Runde und Heimrecht für die eigenen Spiele. <a href="https://www.ncaa.com/news/soccer-men/article/2026-11-09/teams-announced-2026-ncaa-division-ii-mens-soccer-championship" target="_blank" rel="noopener noreferrer">NCAA-Feld 2026 ↗</a></dd></div>
             </dl>
           </aside>
         </section>
         <section class="section-block postseason-section" id="postseason" lang="de" aria-labelledby="postseason-title">
           <div class="section-heading">
-            <div><p class="eyebrow">DER MÖGLICHE WEG · 2026</p><h2 id="postseason-title">Bis zum nationalen Finale</h2></div>
+            <div><p class="eyebrow">E&H IM NCAA-TURNIER</p><h2 id="postseason-title">Zwei Titel, ein Ziel</h2></div>
+            <a class="solid-link" href="https://www.ncaa.com/brackets/soccer-men/d2/2026" target="_blank" rel="noreferrer">Offizieller NCAA-Bracket ↗</a>
           </div>
-          <p class="postseason-intro">Drei mögliche Titel: reguläre SAC-Saison, SAC-Turnier und nationale NCAA-Division-II-Meisterschaft. Die Termine zeigen den Turnierplan, <strong>keine bereits bestätigte Teilnahme von Emory &amp; Henry</strong>. Nach einem Ausscheiden gibt es keine Fortsetzung der regulären Herbstliga.</p>
+          <p class="postseason-intro">Die Saison ist besser gelaufen als jede zuvor: erster Titel der regulären SAC-Saison, erster SAC-Turniertitel, automatischer NCAA-Startplatz. Emory & Henry ist als <strong>Nummer 3 der Super Region 2</strong> gesetzt, überspringt die erste Runde und empfängt Lees-McRae. Ab dem nationalen Halbfinale wird in Kansas City gespielt.</p>
+          <div class="postseason-status">
+            <article><span>REGULÄRE SAC-SAISON</span><strong>Titel</strong><p>8-0-2 · 26 Punkte</p></article>
+            <article><span>SAC-TURNIER</span><strong>Titel</strong><p>Viertelfinale bis Finale gewonnen</p></article>
+            <article><span>NCAA SUPER REGION 2</span><strong>Seed 3</strong><p>Freilos · Heimspiel</p></article>
+          </div>
+          <h3 class="postseason-subtitle">Der bisherige Weg</h3>
           <ol class="postseason-timeline">
-            <li><time datetime="2026-10-28">28. OKT</time><div><span class="stage-label">REGULÄRE SAISON</span><h3>Letztes angesetztes Ligaspiel</h3><p>E&amp;H zu Hause gegen Tusculum, 19:30 Uhr Eastern Time. Sobald alle regulären SAC-Spiele beendet sind, steht die Abschlusstabelle fest; Platz 1 gewinnt den Titel der regulären SAC-Saison. <a href="https://thesac.com/schedule.aspx?schedule=2504" target="_blank" rel="noopener noreferrer">Offizieller Spielplan ↗</a></p></div></li>
-            <li><time datetime="2026-10-31">31. OKT<br>1. NOV</time><div><span class="stage-label">SAC · 8 TEAMS</span><h3>Conference-Viertelfinale</h3><p>Plätze 1–8 spielen 1 gegen 8, 2 gegen 7, 3 gegen 6 und 4 gegen 5. Plätze 1–4 haben Heimrecht. Ein Sieg führt ins Halbfinale; Tag und Gegner für E&amp;H sind noch offen.</p></div></li>
-            <li><time datetime="2026-11-06">6. NOV</time><div><span class="stage-label">SAC · 4 TEAMS</span><h3>Conference-Halbfinale</h3><p>Zwei Entscheidungsspiele in Matthews, North Carolina. Die beiden Sieger erreichen das SAC-Finale.</p></div></li>
-            <li class="title-stage"><time datetime="2026-11-08">8. NOV</time><div><span class="stage-label">SAC · TITELSPIEL</span><h3>Conference-Finale</h3><p>Das Finale in Matthews entscheidet den SAC-Turniertitel. Zuletzt erhielt der Turniersieger den automatischen NCAA-Startplatz der SAC; andere Teams können weiterhin über die nationale Auswahl aufgenommen werden.</p></div></li>
-            <li><time datetime="2026-11-09">9. NOV</time><div><span class="stage-label">NCAA · AUSWAHL</span><h3>Wer gehört zu den 40 Teams?</h3><p>Die NCAA legt das nationale Teilnehmerfeld und die Setzpositionen fest. Erst dann steht fest, ob E&amp;H dabei ist und welchen Weg die Mannschaft im Turnier hätte.</p></div></li>
-            <li><time datetime="2026-11-13">13. / 15.<br>NOV</time><div><span class="stage-label">NCAA · 40 → 32 → 16</span><h3>Erste und zweite Runde</h3><p>Am 13. November spielen nur die Setzpositionen 7–10 jedes Turnierbereichs. Die Plätze 1–6 haben ein Freilos. Am 15. November spielen die verbleibenden 32 Teams um 16 Plätze.</p></div></li>
-            <li><time datetime="2026-11-20">20. / 22.<br>NOV</time><div><span class="stage-label">NCAA · 16 → 8 → 4</span><h3>Dritte Runde und nationales Viertelfinale</h3><p>Am 20. November wird das Feld auf acht Teams reduziert, am 22. November auf vier. Jeder der vier Turnierbereiche stellt dann einen Sieger für die nationalen Halbfinals.</p></div></li>
-            <li><time datetime="2026-12-03">3. DEZ</time><div><span class="stage-label">NCAA · 4 → 2</span><h3>Nationales Halbfinale</h3><p>Die letzten vier Teams spielen im CPKC Stadium in Kansas City, Missouri. Die Sieger der beiden Halbfinalspiele erreichen das Finale.</p></div></li>
-            <li class="title-stage"><time datetime="2026-12-05">5. DEZ</time><div><span class="stage-label">NCAA · 2 → 1</span><h3>Nationales Finale</h3><p>Ein Spiel um die NCAA-Division-II-Meisterschaft, ebenfalls in Kansas City. Geplant: 12 Uhr Eastern Time / 18 Uhr deutscher Zeit. Das ist das spätestmögliche Saisonende.</p></div></li>
+            <li class="done"><time datetime="2026-10-28">28. OKT</time><div><span class="stage-label">SAC · TITELTAG</span><h3>2:0 gegen Tusculum</h3><p>Mit dem Heimsieg stand der erste SAC-Regular-Season-Titel der Programmgeschichte fest. <a href="https://thesac.com/news/2026/10/29/emory-henry-claims-first-sac-mens-soccer-regular-season-title-tournament-field-set.aspx" target="_blank" rel="noopener noreferrer">SAC-Meldung ↗</a></p></div></li>
+            <li class="done"><time datetime="2026-10-31">31. OKT</time><div><span class="stage-label">SAC · VIERTELFINALE</span><h3>1:1 gegen Lenoir-Rhyne</h3><p>Nach zwei torlosen Verlängerungen entschied Elfmeterschießen: 4:3 für E&H. <a href="https://thesac.com/news/2026/11/1/emory-henry-catawba-anderson-and-coker-advance-to-sac-mens-soccer-semifinals.aspx" target="_blank" rel="noopener noreferrer">SAC-Meldung ↗</a></p></div></li>
+            <li class="done"><time datetime="2026-11-06">6. NOV</time><div><span class="stage-label">SAC · HALBFINALE</span><h3>2:1 n.V. gegen Coker</h3><p>Jean Charles Eyidi schoss die Wasps in der 94. Minute ins Finale. <a href="https://thesac.com/news/2026/11/7/emory-henry-and-catawba-advance-to-sac-mens-soccer-championship-final.aspx" target="_blank" rel="noopener noreferrer">SAC-Meldung ↗</a></p></div></li>
+            <li class="done title-stage"><time datetime="2026-11-08">8. NOV</time><div><span class="stage-label">SAC · FINALE</span><h3>4:3 n.V. gegen Catawba</h3><p>Marcelo Lopes traf in der 101. Minute zum ersten SAC-Turniertitel. Der Sieg brachte den automatischen NCAA-Startplatz. <a href="https://catawbaathletics.com/news/2026/11/8/mens-soccer-mens-soccer-falls-in-double-overtime-in-sac-tournament-championship.aspx" target="_blank" rel="noopener noreferrer">Spielbericht ↗</a></p></div></li>
+            <li class="next-stage"><time datetime="2026-11-15">15. NOV</time><div><span class="stage-label">NCAA · ZWEITE RUNDE</span><h3>E&H gegen Lees-McRae</h3><p>Sonntag, 15. November, 21 Uhr deutscher Zeit, in Emory. E&H ist Seed 3, Lees-McRae Seed 6. <a href="https://www.ncaa.com/news/soccer-men/article/2026-11-09/2026-dii-mens-soccer-championship-bracket-schedule-scores" target="_blank" rel="noopener noreferrer">NCAA-Spielplan ↗</a></p></div></li>
           </ol>
-          <p class="source-note">Offizielle Termine: <a href="https://thesac.com/documents/2026/7/29//2026_Men_s_Soccer_Bracket.pdf?id=457" target="_blank" rel="noopener noreferrer">SAC-Turnierplan 2026 ↗</a> · <a href="https://lrbears.com/sports/mens-soccer/schedule/2026" target="_blank" rel="noopener noreferrer">SAC-Heimrecht ↗</a> · <a href="https://ncaaorg.s3.amazonaws.com/championships/sports/soccer/d2/men/2026-27D2MSO_PreChampsManual.pdf" target="_blank" rel="noopener noreferrer">NCAA-Turnierplan und Regeln ↗</a> · <a href="https://lmurailsplitters.com/news/2025/11/16/mens-soccer-claims-2025-sac-tournament-championshiptitle-with-shutout-over-lenoir-rhyne.aspx" target="_blank" rel="noopener noreferrer">SAC-Startplatz 2025 ↗</a></p>
+          <div class="ncaa-bracket-panel">
+            <header><div><p class="eyebrow">SUPER REGION 2</p><h3>Der Turnierbereich von E&H</h3></div><span>Second Round · 15. November</span></header>
+            <div class="ncaa-bracket" id="ncaa-bracket"></div>
+            <p>Die Setzpositionen 7–10 spielen am 13. November um den Einzug in die zweite Runde. Die Sieger treffen auf die Teams mit Freilos; E&H wartet als Seed 3 auf Lees-McRae.</p>
+          </div>
+          <h3 class="postseason-subtitle">Was noch kommen kann</h3>
+          <ul class="ncaa-rounds" id="ncaa-rounds"></ul>
           <details class="ncaa-explainer">
-            <summary>Wie funktioniert das nationale Turnier mit 40 Teams?</summary>
+            <summary>Wie das 40-Team-Turnier funktioniert</summary>
             <div class="ncaa-explainer-body">
-              <p><strong>40 Teams, aber nur ein Finale.</strong> Gemeint ist die gesamte nationale Meisterschaft der NCAA Division II im Männerfußball. Das eigentliche Finale spielen am 5. Dezember nur die letzten zwei Mannschaften.</p>
+              <p>Die NCAA Division II ist die nationale Meisterschaft nach der Conference-Saison. E&H ist jetzt sicher dabei; die folgende Runde ist die zweite Runde.</p>
               <dl>
-                <div><dt>Auswahl statt fester Tabellenplätze</dt><dd>Automatisch qualifizierte Teams der Conferences und zusätzlich ausgewählte Teams („at-large“) bilden das Feld. Für die zusätzliche Auswahl zählt der NCAA Power Index, unter anderem mit Ergebnissen und Gegnerstärke. Ein guter SAC-Platz allein garantiert keinen NCAA-Startplatz.</dd></div>
-                <div><dt>Vier Bereiche mit je zehn Teams</dt><dd>Die NCAA ordnet das Feld vier „Super-Regions“ zu. E&amp;H und die SAC gehören zur Super-Region 2. Es sind K.-o.-Turnierbereiche, keine Gruppen mit einer neuen Tabelle: Wer verliert, scheidet aus.</dd></div>
-                <div><dt>Warum 40 und nicht 32?</dt><dd>In jedem Bereich spielen zuerst 7 gegen 10 und 8 gegen 9. Zwei Teams scheiden aus, acht bleiben. Die Setzpositionen 1–6 überspringen diese erste Runde. Über alle vier Bereiche entstehen so aus 40 Teams die üblichen 32 für die nächste Runde.</dd></div>
-                <div><dt>Bis zu sechs Siege zum nationalen Titel</dt><dd>Nach den ersten Runden bleiben vier Bereichssieger. Sie treffen im nationalen Halbfinale aufeinander; die Sieger spielen das Finale. Ein Team mit Freilos braucht fünf Siege zum Titel, ein Team ohne Freilos sechs. Hin- und Rückspiele oder eine Gruppenphase gibt es nicht.</dd></div>
+                <div><dt>Vier Bereiche mit je zehn Teams</dt><dd>Das Feld ist in vier „Super-Regions“ aufgeteilt. E&H spielt in Super Region 2. Es ist ein K.-o.-Turnier: Wer verliert, fliegt aus.</dd></div>
+                <div><dt>Freilos für die Seeds 1–6</dt><dd>In der ersten Runde spielen nur 7 gegen 10 und 8 gegen 9. E&H hatte als Seed 3 freie Woche und wartet auf den Seed 6.</dd></div>
+                <div><dt>Bis zu fünf Siege bis zum Titel</dt><dd>Wer ein Freilos hat, braucht fünf Siege für die Meisterschaft: zweite Runde, dritte Runde, Viertelfinale, Halbfinale, Finale.</dd></div>
+                <div><dt>Heimspiele bis Kansas City</dt><dd>Die Spiele bis zum nationalen Viertelfinale finden auf Campusplätzen statt. Halbfinale und Finale werden im CPKC Stadium in Kansas City ausgetragen.</dd></div>
               </dl>
               <p class="ncaa-field-flow" aria-label="Verbleibende Mannschaften nach jeder Runde"><span>40</span> → <span>32</span> → <span>16</span> → <span>8</span> → <span>4</span> → <span>2</span> → <strong>1 Meister</strong></p>
-              <p class="source-note">Format und Auswahl: <a href="https://ncaaorg.s3.amazonaws.com/championships/sports/soccer/d2/men/2026-27D2MSO_PreChampsManual.pdf" target="_blank" rel="noopener noreferrer">Offizielles NCAA-Handbuch 2026–27 ↗</a>. Gegner und Teilnahme von E&amp;H werden erst nach der Auswahl bestätigt.</p>
+              <p class="source-note">Quellen: <a href="https://www.ncaa.com/news/soccer-men/article/2026-11-09/teams-announced-2026-ncaa-division-ii-mens-soccer-championship" target="_blank" rel="noopener noreferrer">NCAA-Feld und Seeds ↗</a> · <a href="https://www.ncaa.com/brackets/soccer-men/d2/2026" target="_blank" rel="noopener noreferrer">Offizieller Bracket ↗</a> · <a href="https://www.ncaa.org/championship/division-ii/mens-soccer/" target="_blank" rel="noopener noreferrer">NCAA-Championship-Seite ↗</a></p>
             </div>
           </details>
         </section>

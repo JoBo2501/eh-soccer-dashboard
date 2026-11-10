@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-08T22:29:00Z",
+  "updatedAt": "2026-11-10T12:00:00Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "11-1-6",
-    "conference": "10-0-3",
+    "conference": "8-0-2",
     "goalsFor": 36,
     "goalsAgainst": 14,
     "games": 18,
@@ -14,14 +14,14 @@
   "player": {
     "name": "Niklas Borck",
     "number": 14,
-    "minutes": 225,
+    "minutes": 261,
     "starts": 2,
-    "appearances": 9,
+    "appearances": 11,
     "goals": 0,
-    "assists": 1,
+    "assists": 2,
     "shots": 4,
     "shotsOnGoal": 2,
-    "verifiedThrough": "2026-10-24",
+    "verifiedThrough": "2026-11-08",
     "log": [
       {
         "date": "2026-08-27",
@@ -132,6 +132,34 @@
         "shotsOnGoal": 0,
         "yellowCards": 0,
         "url": "https://www.gowasps.com/links/yfn42o"
+      },
+      {
+        "date": "2026-11-06",
+        "opponent": "Coker University",
+        "site": "home",
+        "role": "Sub",
+        "minutes": 15,
+        "goals": 0,
+        "assists": 0,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "yellowCards": 0,
+        "url": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261106_qbhu.xml",
+        "competition": "sac-tournament"
+      },
+      {
+        "date": "2026-11-08",
+        "opponent": "Catawba College",
+        "site": "home",
+        "role": "Sub",
+        "minutes": 21,
+        "goals": 0,
+        "assists": 1,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "yellowCards": 0,
+        "url": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261108_1omb.xml",
+        "competition": "sac-tournament"
       }
     ],
     "yellowCards": 1
@@ -177,7 +205,8 @@
       "result": "W",
       "for": 3,
       "against": 1,
-      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260827_y820.xml"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260827_y820.xml",
+      "competition": "regular"
     },
     {
       "date": "2026-08-29",
@@ -189,7 +218,8 @@
       "result": "L",
       "for": 1,
       "against": 2,
-      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260829_pvwf.xml"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260829_pvwf.xml",
+      "competition": "regular"
     },
     {
       "date": "2026-09-06",
@@ -201,7 +231,8 @@
       "result": "D",
       "for": 1,
       "against": 1,
-      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260906_iwn5.xml"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260906_iwn5.xml",
+      "competition": "regular"
     },
     {
       "date": "2026-09-09",
@@ -213,7 +244,8 @@
       "result": "D",
       "for": 1,
       "against": 1,
-      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260909_t7cl.xml"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260909_t7cl.xml",
+      "competition": "regular"
     },
     {
       "date": "2026-09-12",
@@ -225,7 +257,8 @@
       "result": "D",
       "for": 0,
       "against": 0,
-      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260912_kdee.xml"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260912_kdee.xml",
+      "competition": "regular"
     },
     {
       "date": "2026-09-15",
@@ -237,7 +270,8 @@
       "result": "D",
       "for": 2,
       "against": 2,
-      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260915_ir8r.xml"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260915_ir8r.xml",
+      "competition": "regular"
     },
     {
       "date": "2026-09-19",
@@ -251,7 +285,8 @@
       "against": 0,
       "boxScoreUrl": "https://www.gowasps.com/links/03f1y5",
       "shots": 8,
-      "corners": 9
+      "corners": 9,
+      "competition": "regular"
     },
     {
       "date": "2026-09-23",
@@ -265,7 +300,8 @@
       "against": 1,
       "boxScoreUrl": "https://www.gowasps.com/links/d0yk6n",
       "shots": 11,
-      "corners": 0
+      "corners": 0,
+      "competition": "regular"
     },
     {
       "date": "2026-09-26",
@@ -277,7 +313,8 @@
       "result": "W",
       "for": 3,
       "against": 1,
-      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260926_srj1.xml"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260926_srj1.xml",
+      "competition": "regular"
     },
     {
       "date": "2026-09-29",
@@ -289,7 +326,8 @@
       "result": "W",
       "for": 2,
       "against": 0,
-      "boxScoreUrl": "https://marshilllions.com/sports/msoc/2026-27/boxscores/20260929_c58w.xml"
+      "boxScoreUrl": "https://marshilllions.com/sports/msoc/2026-27/boxscores/20260929_c58w.xml",
+      "competition": "regular"
     },
     {
       "date": "2026-10-03",
@@ -302,7 +340,8 @@
       "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261003_unje.xml",
       "result": "W",
       "for": 1,
-      "against": 0
+      "against": 0,
+      "competition": "regular"
     },
     {
       "date": "2026-10-07",
@@ -315,7 +354,8 @@
       "boxScoreUrl": "https://www.gowasps.com/links/185e9g",
       "result": "W",
       "for": 3,
-      "against": 0
+      "against": 0,
+      "competition": "regular"
     },
     {
       "date": "2026-10-17",
@@ -328,7 +368,8 @@
       "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261017_2jbi.xml",
       "result": "W",
       "for": 4,
-      "against": 0
+      "against": 0,
+      "competition": "regular"
     },
     {
       "date": "2026-10-24",
@@ -343,7 +384,8 @@
       "for": 2,
       "against": 0,
       "shots": 18,
-      "corners": 5
+      "corners": 5,
+      "competition": "regular"
     },
     {
       "date": "2026-10-28",
@@ -356,52 +398,76 @@
       "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261028_e6ub.xml",
       "result": "W",
       "for": 2,
-      "against": 0
+      "against": 0,
+      "competition": "regular"
     },
     {
       "date": "2026-10-31",
       "opponent": "Lenoir-Rhyne University",
       "site": "home",
-      "location": "Emory, VA",
-      "conference": true,
+      "location": "Emory, Va. · Food City Sports Complex",
+      "conference": false,
       "status": "final",
       "time": "TBA",
       "result": "D",
       "for": 1,
-      "against": 1
+      "against": 1,
+      "competition": "sac-tournament",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261031_8b50.xml",
+      "shootout": "4-3 E&H on penalties"
     },
     {
       "date": "2026-11-06",
       "opponent": "Coker University",
       "site": "home",
-      "location": "Matthews, N.C. / Matthews Sportsplex",
-      "conference": true,
+      "location": "Matthews, N.C. · Sportsplex at Matthews",
+      "conference": false,
       "status": "final",
       "time": "TBA",
       "result": "W",
       "for": 2,
-      "against": 1
+      "against": 1,
+      "competition": "sac-tournament",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261106_qbhu.xml",
+      "overtime": true
     },
     {
       "date": "2026-11-08",
       "opponent": "Catawba College",
       "site": "home",
-      "location": "Matthews, N.C. / Matthews Sportsplex",
-      "conference": true,
+      "location": "Matthews, N.C. · Sportsplex at Matthews",
+      "conference": false,
       "status": "final",
       "time": "TBA",
       "result": "W",
       "for": 4,
-      "against": 3
+      "against": 3,
+      "competition": "sac-tournament",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261108_1omb.xml",
+      "overtime": true
+    },
+    {
+      "date": "2026-11-15",
+      "opponent": "Lees-McRae",
+      "site": "home",
+      "location": "Emory, Va.",
+      "conference": false,
+      "competition": "ncaa",
+      "status": "scheduled",
+      "time": "3:00 PM",
+      "round": "NCAA second round",
+      "seed": "#3",
+      "opponentSeed": "#6",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261115_m2co.xml"
     }
   ],
   "standings": [
     {
       "team": "Emory & Henry",
-      "conference": "10-0-3",
-      "points": 33,
+      "conference": "8-0-2",
+      "points": 26,
       "overall": "11-1-6",
-      "form": "W16"
+      "form": "W1"
     },
     {
       "team": "Catawba",
@@ -474,10 +540,112 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-10T02:43:37Z",
+  "checkedAt": "2026-11-10T12:00:00Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
     "message": ""
+  },
+  "postseason": {
+    "sac": {
+      "regularSeasonChampion": true,
+      "tournamentChampion": true,
+      "automaticNcaaBid": true,
+      "quarterfinal": "1-1 vs Lenoir-Rhyne (4-3 on penalties)",
+      "semifinal": "2-1 OT vs Coker",
+      "final": "4-3 2OT vs Catawba"
+    },
+    "ncaa": {
+      "region": "Super Region 2",
+      "seed": 3,
+      "host": true,
+      "firstRoundBye": true,
+      "record": "11-1-6",
+      "next": {
+        "date": "2026-11-15",
+        "time": "3:00 PM ET",
+        "opponent": "Lees-McRae",
+        "opponentSeed": 6,
+        "site": "Emory, Va."
+      },
+      "regionBracket": [
+        {
+          "seed": 1,
+          "team": "Flagler",
+          "secondRound": "vs. AUM/Lynn winner"
+        },
+        {
+          "seed": 2,
+          "team": "Catawba",
+          "secondRound": "vs. North Georgia/West Alabama winner"
+        },
+        {
+          "seed": 3,
+          "team": "Emory & Henry",
+          "secondRound": "vs. Lees-McRae"
+        },
+        {
+          "seed": 4,
+          "team": "Trevecca Nazarene",
+          "secondRound": "vs. Francis Marion"
+        },
+        {
+          "seed": 5,
+          "team": "Francis Marion",
+          "secondRound": "at Trevecca Nazarene"
+        },
+        {
+          "seed": 6,
+          "team": "Lees-McRae",
+          "secondRound": "at Emory & Henry"
+        },
+        {
+          "seed": 7,
+          "team": "North Georgia",
+          "secondRound": "at Catawba if it beats West Alabama"
+        },
+        {
+          "seed": 8,
+          "team": "AUM",
+          "secondRound": "at Flagler if it beats Lynn"
+        },
+        {
+          "seed": 9,
+          "team": "Lynn",
+          "firstRound": "at AUM"
+        },
+        {
+          "seed": 10,
+          "team": "West Alabama",
+          "firstRound": "at North Georgia"
+        }
+      ],
+      "upcomingRounds": [
+        {
+          "round": "Second round",
+          "date": "2026-11-15",
+          "time": "3:00 PM ET"
+        },
+        {
+          "round": "Third round",
+          "date": "2026-11-20"
+        },
+        {
+          "round": "Quarterfinal",
+          "date": "2026-11-22"
+        },
+        {
+          "round": "Semifinal",
+          "date": "2026-12-03",
+          "location": "Kansas City, Mo."
+        },
+        {
+          "round": "Championship",
+          "date": "2026-12-05",
+          "time": "5:00 PM ET",
+          "location": "Kansas City, Mo."
+        }
+      ]
+    }
   }
 }

@@ -31,13 +31,26 @@ function applyTheme(nextTheme) {
   themeButton.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} mode`);
 }
 
+const competitionLabel = (match = {}) => {
+  if (match.competition === "ncaa") return "NCAA · SECOND ROUND";
+  if (match.competition === "sac-tournament") return "SAC TOURNAMENT";
+  return match.conference ? "SAC" : "NON-CONFERENCE";
+};
+
+const competitionTag = (match = {}) => {
+  if (match.competition === "ncaa") return '<small class="conference-tag ncaa">NCAA</small>';
+  if (match.competition === "sac-tournament") return '<small class="conference-tag tournament">SAC-Turnier</small>';
+  return match.conference ? '<small class="conference-tag">SAC</small>' : "";
+};
+
 function renderNextMatch(match, lastMatch, broadcasts = {}) {
   const node = $("#next-match");
   const nextStatsUrl = match && (match.boxScoreUrl || broadcasts.liveStats?.[match.date]);
   node.innerHTML = `
     ${match ? `
-      <div class="next-kicker"><i></i> NEXT GAME${match.conference ? " · SAC" : ""}</div>
+      <div class="next-kicker"><i></i> NEXT GAME · ${competitionLabel(match)}</div>
       <h2>${match.site === "away" ? "at " : "vs "}${cleanOpponent(match.opponent)}</h2>
+      ${match.opponentSeed ? `<div class="next-seed">E&H ${match.seed || ""} vs ${match.opponentSeed} ${cleanOpponent(match.opponent)}</div>` : ""}
       <div class="next-meta"><span>${fmtDate(match.date)} · ${match.time || "TBA"} ET</span><span>${match.site === "home" ? "HOME" : "AWAY"}</span></div>
       ${nextStatsUrl ? `<a class="next-stats-link" href="${nextStatsUrl}" target="_blank" rel="noopener noreferrer">Line-ups &amp; live stats ↗</a>` : ""}` :
       `<div class="next-kicker">SEASON COMPLETE</div><h2>All fixtures played</h2>`}
@@ -45,7 +58,7 @@ function renderNextMatch(match, lastMatch, broadcasts = {}) {
       <div class="last-game-hero">
         <span class="last-game-label">LAST GAME · ${fmtDate(lastMatch.date).toUpperCase()}</span>
         <div class="last-game-score"><strong>${lastMatch.site === "away" ? "at " : "vs "}${cleanOpponent(lastMatch.opponent)}</strong><b>${lastMatch.for}–${lastMatch.against}</b></div>
-        <div class="last-game-foot"><span>${lastMatch.result === "W" ? "WIN" : lastMatch.result === "L" ? "LOSS" : "DRAW"} · ${lastMatch.conference ? "SAC" : "NON-CONFERENCE"}</span>${lastMatch.boxScoreUrl ? `<a href="${lastMatch.boxScoreUrl}" target="_blank" rel="noopener noreferrer">Match details ↗</a>` : `<a href="#results">All results ↗</a>`}</div>
+        <div class="last-game-foot"><span>${lastMatch.result === "W" ? "WIN" : lastMatch.result === "L" ? "LOSS" : "DRAW"} · ${competitionLabel(lastMatch)}</span>${lastMatch.boxScoreUrl ? `<a href="${lastMatch.boxScoreUrl}" target="_blank" rel="noopener noreferrer">Match details ↗</a>` : `<a href="#results">All results ↗</a>`}</div>
       </div>` : ""}
   `;
 }
@@ -83,18 +96,18 @@ function renderPlayer(player, nextMatch, lastMatch, broadcasts = {}) {
 }
 
 function renderOpponents(matches) {
-  const upcoming = matches.filter((match) => match.status !== "final" && match.conference);
+  const upcoming = matches.filter((match) => match.status !== "final");
   $("#next-opponents").innerHTML = upcoming.slice(0, 3).map((match, index) => `
-    <article class="opponent-card">
+    <article class="opponent-card${match.competition === "ncaa" ? " ncaa-card" : ""}">
       <span class="index">0${index + 1}</span>
-      <p>${fmtDate(match.date).toUpperCase()} · ${match.site.toUpperCase()}</p>
+      <p>${fmtDate(match.date).toUpperCase()} · ${competitionLabel(match)}</p>
       <h3>${cleanOpponent(match.opponent)}</h3>
       <div class="opponent-details"><span>${match.location}</span><strong>${match.time || "TBA"} ET</strong></div>
     </article>`).join("");
 
   $("#fixture-count").textContent = `${upcoming.length} fixtures`;
   $("#fixtures-list").innerHTML = upcoming.map((match, index) => `
-    <div class="fixture${index < 3 ? " featured" : ""}">
+    <div class="fixture${index < 3 ? " featured" : ""}${match.competition === "ncaa" ? " ncaa" : ""}">
       <time datetime="${match.date}">${fmtDate(match.date)}</time>
       <span class="venue ${match.site}">${match.site === "home" ? "H" : "A"}</span>
       <strong>${cleanOpponent(match.opponent)}</strong>
@@ -103,13 +116,13 @@ function renderOpponents(matches) {
 }
 
 function renderBroadcasts(matches, broadcasts = {}) {
-  const conferenceMatches = matches
-    .filter((match) => match.conference)
+  const trackedMatches = matches
+    .filter((match) => match.conference || match.competition)
     .sort((a, b) => a.date.localeCompare(b.date));
   const overrides = broadcasts.overrides || {};
   const liveStats = broadcasts.liveStats || {};
 
-  $("#broadcast-list").innerHTML = conferenceMatches.map((match) => {
+  $("#broadcast-list").innerHTML = trackedMatches.map((match) => {
     const isFinal = match.status === "final";
     const streamUrl = overrides[match.date]
       || (isFinal ? broadcasts.hubUrl : broadcasts.defaultUrl)
@@ -145,10 +158,10 @@ function renderResults(matches) {
   $("#results-body").innerHTML = completed.map((match) => `
     <tr data-site="${match.site}"${filter !== "all" && match.site !== filter ? " hidden" : ""}>
       <td>${fmtDate(match.date)}</td>
-      <td>${match.boxScoreUrl ? `<a href="${match.boxScoreUrl}" target="_blank" rel="noopener noreferrer" aria-label="Match details: ${cleanOpponent(match.opponent)}, ${fmtDate(match.date)}">${cleanOpponent(match.opponent)} ↗</a>` : cleanOpponent(match.opponent)}${match.conference ? '<small class="conference-tag">SAC</small>' : ""}</td>
+      <td>${match.boxScoreUrl ? `<a href="${match.boxScoreUrl}" target="_blank" rel="noopener noreferrer" aria-label="Match details: ${cleanOpponent(match.opponent)}, ${fmtDate(match.date)}">${cleanOpponent(match.opponent)} ↗</a>` : cleanOpponent(match.opponent)}${competitionTag(match)}</td>
       <td>${match.location}</td>
       <td><span class="result-badge ${match.result}">${match.result}</span></td>
-      <td class="score">${match.for}–${match.against}</td>
+      <td class="score">${match.for}–${match.against}${match.overtime ? '<small class="score-note">n.V.</small>' : ""}${match.shootout ? `<small class="score-note">${match.shootout}</small>` : ""}</td>
     </tr>`).join("");
 }
 
@@ -164,9 +177,34 @@ function renderStandings(standings) {
     </tr>`).join("");
 }
 
+function renderPostseason(postseason = {}) {
+  const ncaa = postseason.ncaa || {};
+  const bracket = $("#ncaa-bracket");
+  if (bracket) {
+    bracket.innerHTML = (ncaa.regionBracket || []).map((team) => `
+      <article class="bracket-card${team.team.includes("Emory") ? " eh" : ""}">
+        <span class="bracket-seed">${team.seed}</span>
+        <strong>${team.team}</strong>
+        <p>${team.secondRound || team.firstRound || ""}</p>
+      </article>
+    `).join("");
+  }
+
+  const rounds = $("#ncaa-rounds");
+  if (rounds) {
+    rounds.innerHTML = (ncaa.upcomingRounds || []).map((round, index) => `
+      <li class="${index === 0 ? "next-round" : "future-round"}">
+        <span>${round.round}</span>
+        <strong>${fmtDate(round.date, "long")}${round.time ? ` · ${round.time}` : ""}</strong>
+        ${round.location ? `<small>${round.location}</small>` : ""}
+      </li>
+    `).join("");
+  }
+}
+
 function render(data) {
   seasonData = data;
-  const { team, player, matches, standings, broadcasts } = data;
+  const { team, player, matches, standings, broadcasts, postseason } = data;
   const nextMatch = matches.find((match) => match.status !== "final");
   const lastMatch = matches.filter((match) => match.status === "final").sort((a, b) => b.date.localeCompare(a.date))[0];
   const scored = team.games ? team.goalsFor / team.games : 0;
@@ -190,6 +228,7 @@ function render(data) {
   renderBroadcasts(matches, broadcasts);
   renderResults(matches);
   renderStandings(standings);
+  renderPostseason(postseason);
 
   const updated = new Date(data.updatedAt);
   const label = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" }).format(updated);

@@ -79,13 +79,18 @@ def parse_schedule(existing: list[dict]) -> list[dict]:
         result_text, location = values[2], values[3]
         status_text = values[4] if len(values) > 4 else ""
         result_match = re.search(r"\b([WLT])\s+(\d+)\s*[-–]\s*(\d+)", result_text)
-        conference = normalized_team(opponent) in SAC_TEAMS
+        prior = previous.get(date, {})
+        # Conference-tournament and NCAA matches are postseason competitions.
+        # They must never flow into the SAC regular-season standings.
+        competition = prior.get("competition", "regular")
+        conference = competition == "regular" and normalized_team(opponent) in SAC_TEAMS
         item = {
             "date": date,
             "opponent": opponent,
             "site": site,
             "location": location,
             "conference": conference,
+            "competition": competition,
             "status": "final" if result_match else "scheduled",
         }
         if result_match:
@@ -102,12 +107,22 @@ def parse_schedule(existing: list[dict]) -> list[dict]:
             item["boxScoreUrl"] = urljoin(SCHEDULE_URL, box_link["href"])
         elif previous.get(date, {}).get("boxScoreUrl"):
             item["boxScoreUrl"] = previous[date]["boxScoreUrl"]
-        prior = previous.get(date, {})
         if prior.get("status") == "final" and item["status"] != "final":
             item = {**item, **prior}
         elif prior:
             item = {**prior, **item}
         parsed.append(item)
+
+    # NCAA games are not listed on the SAC schedule. Preserve the manually
+    # verified national-tournament fixtures instead of dropping them.
+    parsed_dates = {match["date"] for match in parsed}
+    preserved = [
+        match
+        for match in existing
+        if match.get("competition") == "ncaa" and match["date"] not in parsed_dates
+    ]
+    parsed.extend(preserved)
+    parsed.sort(key=lambda match: match["date"])
 
     if len(parsed) < 10:
         raise ValueError(f"Only {len(parsed)} schedule rows parsed")
@@ -299,7 +314,12 @@ def reconcile_team(team: dict, matches: list[dict], standings: list[dict]) -> tu
         draws = sum(match["result"] == "D" for match in rows)
         return f"{wins}-{losses}-{draws}"
 
-    conference_finals = [match for match in finals if match["conference"]]
+    # Only regular-season conference games belong in the SAC table. The SAC
+    # tournament and NCAA championship are separate postseason competitions.
+    regular_finals = [
+        match for match in finals if match.get("competition", "regular") == "regular"
+    ]
+    conference_finals = [match for match in regular_finals if match["conference"]]
     team.update({
         "games": len(finals),
         "goalsFor": sum(match["for"] for match in finals),
@@ -318,11 +338,18 @@ def reconcile_team(team: dict, matches: list[dict], standings: list[dict]) -> tu
     if eh_row:
         conference_wins = sum(match["result"] == "W" for match in conference_finals)
         conference_draws = sum(match["result"] == "D" for match in conference_finals)
+        regular_unbeaten = 0
+        for match in reversed(regular_finals):
+            if match["result"] == "L":
+                break
+            regular_unbeaten += 1
+        last_regular = regular_finals[-1]
+        letter = "W" if last_regular["result"] == "W" else "L" if last_regular["result"] == "L" else "T"
         eh_row.update({
             "conference": team["conference"],
             "points": conference_wins * 3 + conference_draws,
             "overall": team["overall"],
-            "form": f"{'W' if finals[-1]['result'] == 'W' else 'L' if finals[-1]['result'] == 'L' else 'T'}{unbeaten}",
+            "form": f"{letter}{regular_unbeaten}",
         })
     return team, standings
 

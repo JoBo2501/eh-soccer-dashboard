@@ -50,6 +50,44 @@ class UpdaterTests(unittest.TestCase):
                 "2026-09-29": "https://marshilllions.com/schedule"}})
         self.assertEqual(pending["status"], "scheduled")
 
+    def test_postseason_matches_stay_out_of_conference_table(self):
+        matches = [
+            {"date": "2026-10-28", "opponent": "Tusculum", "site": "home",
+             "conference": True, "competition": "regular", "status": "final",
+             "result": "W", "for": 2, "against": 0},
+            {"date": "2026-10-31", "opponent": "Lenoir-Rhyne", "site": "home",
+             "conference": False, "competition": "sac-tournament", "status": "final",
+             "result": "D", "for": 1, "against": 1},
+        ]
+        team = {"games": 0}
+        standings = [{"team": "Emory & Henry", "conference": "0-0-0", "points": 0,
+                      "overall": "0-0-0", "form": "T0"}]
+        team, standings = updater.reconcile_team(team, matches, standings)
+        self.assertEqual(team["conference"], "1-0-0")
+        self.assertEqual(team["overall"], "1-0-1")
+        self.assertEqual(standings[0]["points"], 3)
+        self.assertEqual(standings[0]["form"], "W1")
+
+    def test_ncaa_fixture_is_preserved_when_sac_schedule_is_parsed(self):
+        rows = "".join(
+            f"<tr><td>09/{day:02d}/2026</td><td>at Mars Hill University</td>"
+            "<td>W 2-0</td><td>Mars Hill</td><td>7:30 PM</td></tr>"
+            for day in range(1, 11)
+        )
+        soup = BeautifulSoup(
+            f'<table class="sidearm-schedule-table"><tbody>{rows}</tbody></table>',
+            "html.parser",
+        )
+        ncaa = {"date": "2026-11-15", "opponent": "Lees-McRae", "site": "home",
+                "conference": False, "competition": "ncaa", "status": "scheduled",
+                "time": "3:00 PM"}
+        with patch.object(updater, "fetch", return_value=soup):
+            result = updater.parse_schedule([ncaa])
+        preserved = next(match for match in result if match["date"] == "2026-11-15")
+        self.assertEqual(preserved["competition"], "ncaa")
+        self.assertEqual(preserved["opponent"], "Lees-McRae")
+        self.assertFalse(preserved["conference"])
+
     def test_partial_verified_changes_are_saved_before_failure(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "season.json"
