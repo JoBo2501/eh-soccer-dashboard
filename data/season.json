@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T10:26:59Z",
+  "updatedAt": "2026-11-10T18:16:19Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "11-1-6",
@@ -450,7 +450,7 @@
       "date": "2026-11-15",
       "opponent": "Lees-McRae",
       "site": "home",
-      "location": "Emory, Va.",
+      "location": "Emory, VA",
       "conference": false,
       "competition": "ncaa",
       "status": "scheduled",
@@ -540,7 +540,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-10T10:26:59Z",
+  "checkedAt": "2026-11-10T18:16:19Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
