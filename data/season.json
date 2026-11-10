@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T12:00:00Z",
+  "updatedAt": "2026-11-10T10:26:59Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "11-1-6",
@@ -405,7 +405,7 @@
       "date": "2026-10-31",
       "opponent": "Lenoir-Rhyne University",
       "site": "home",
-      "location": "Emory, Va. · Food City Sports Complex",
+      "location": "Emory, VA",
       "conference": false,
       "status": "final",
       "time": "TBA",
@@ -420,7 +420,7 @@
       "date": "2026-11-06",
       "opponent": "Coker University",
       "site": "home",
-      "location": "Matthews, N.C. · Sportsplex at Matthews",
+      "location": "Matthews, N.C. / Matthews Sportsplex",
       "conference": false,
       "status": "final",
       "time": "TBA",
@@ -435,7 +435,7 @@
       "date": "2026-11-08",
       "opponent": "Catawba College",
       "site": "home",
-      "location": "Matthews, N.C. · Sportsplex at Matthews",
+      "location": "Matthews, N.C. / Matthews Sportsplex",
       "conference": false,
       "status": "final",
       "time": "TBA",
@@ -467,7 +467,7 @@
       "conference": "8-0-2",
       "points": 26,
       "overall": "11-1-6",
-      "form": "W1"
+      "form": "W13"
     },
     {
       "team": "Catawba",
@@ -540,7 +540,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-10T12:00:00Z",
+  "checkedAt": "2026-11-10T10:26:59Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
