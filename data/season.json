@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-11-10T18:16:19Z",
+  "updatedAt": "2026-11-16T01:25:52Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
-    "overall": "11-1-6",
+    "overall": "12-1-6",
     "conference": "8-0-2",
-    "goalsFor": 36,
+    "goalsFor": 37,
     "goalsAgainst": 14,
-    "games": 18,
-    "shots": 285,
-    "corners": 110,
-    "unbeatenRun": 16
+    "games": 19,
+    "shots": 300,
+    "corners": 117,
+    "unbeatenRun": 17
   },
   "player": {
     "name": "Niklas Borck",
@@ -453,12 +453,25 @@
       "location": "Emory, VA",
       "conference": false,
       "competition": "ncaa",
-      "status": "scheduled",
+      "status": "final",
       "time": "3:00 PM",
       "round": "NCAA second round",
       "seed": "#3",
       "opponentSeed": "#6",
-      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261115_m2co.xml"
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261115_m2co.xml",
+      "result": "W",
+      "for": 1,
+      "against": 0
+    },
+    {
+      "date": "2026-11-20",
+      "opponent": "Catawba College",
+      "site": "home",
+      "location": "St. Augustine, Fla.",
+      "conference": true,
+      "competition": "regular",
+      "status": "scheduled",
+      "time": "TBA"
     }
   ],
   "standings": [
@@ -466,15 +479,15 @@
       "team": "Emory & Henry",
       "conference": "8-0-2",
       "points": 26,
-      "overall": "11-1-6",
+      "overall": "12-1-6",
       "form": "W13"
     },
     {
       "team": "Catawba",
       "conference": "8-1-1",
       "points": 25,
-      "overall": "14-2-2",
-      "form": "L1"
+      "overall": "15-2-2",
+      "form": "W1"
     },
     {
       "team": "Anderson",
@@ -540,7 +553,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-15T21:46:41Z",
+  "checkedAt": "2026-11-16T01:25:52Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
