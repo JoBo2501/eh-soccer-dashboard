@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T01:25:52Z",
+  "updatedAt": "2026-11-17T02:28:11Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "12-1-6",
@@ -14,9 +14,9 @@
   "player": {
     "name": "Niklas Borck",
     "number": 14,
-    "minutes": 261,
+    "minutes": 293,
     "starts": 2,
-    "appearances": 11,
+    "appearances": 14,
     "goals": 0,
     "assists": 2,
     "shots": 4,
@@ -119,6 +119,42 @@
         "shots": 0,
         "shotsOnGoal": 0,
         "url": "https://marshilllions.com/sports/msoc/2026-27/boxscores/20260929_c58w.xml"
+      },
+      {
+        "date": "2026-10-03",
+        "opponent": "Carson-Newman University",
+        "site": "home",
+        "role": "Sub",
+        "minutes": 11,
+        "goals": 0,
+        "assists": 0,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "url": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261003_unje.xml"
+      },
+      {
+        "date": "2026-10-07",
+        "opponent": "Lincoln Memorial University",
+        "site": "away",
+        "role": "Sub",
+        "minutes": 10,
+        "goals": 0,
+        "assists": 0,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "url": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261007_sp9y.xml"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Newberry College",
+        "site": "home",
+        "role": "Sub",
+        "minutes": 11,
+        "goals": 0,
+        "assists": 0,
+        "shots": 0,
+        "shotsOnGoal": 0,
+        "url": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261017_2jbi.xml"
       },
       {
         "date": "2026-10-24",
@@ -283,7 +319,7 @@
       "result": "D",
       "for": 0,
       "against": 0,
-      "boxScoreUrl": "https://www.gowasps.com/links/03f1y5",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260919_2r5d.xml",
       "shots": 8,
       "corners": 9,
       "competition": "regular"
@@ -298,7 +334,7 @@
       "result": "W",
       "for": 4,
       "against": 1,
-      "boxScoreUrl": "https://www.gowasps.com/links/d0yk6n",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20260923_flsw.xml",
       "shots": 11,
       "corners": 0,
       "competition": "regular"
@@ -351,7 +387,7 @@
       "conference": true,
       "status": "final",
       "time": "7:00 PM",
-      "boxScoreUrl": "https://www.gowasps.com/links/185e9g",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261007_sp9y.xml",
       "result": "W",
       "for": 3,
       "against": 0,
@@ -379,7 +415,7 @@
       "conference": true,
       "status": "final",
       "time": "7:30 PM",
-      "boxScoreUrl": "https://www.gowasps.com/links/yfn42o",
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261024_va7j.xml",
       "result": "W",
       "for": 2,
       "against": 0,
@@ -553,7 +589,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-16T18:55:28Z",
+  "checkedAt": "2026-11-17T02:28:11Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
