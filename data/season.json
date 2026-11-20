@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T02:28:11Z",
+  "updatedAt": "2026-11-20T16:07:56Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "12-1-6",
@@ -500,7 +500,7 @@
       "against": 0
     },
     {
-      "date": "2026-11-20",
+      "date": "2026-11-21",
       "opponent": "Catawba College",
       "site": "home",
       "location": "St. Augustine, Fla.",
@@ -589,7 +589,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-20T07:11:09Z",
+  "checkedAt": "2026-11-20T16:07:56Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
