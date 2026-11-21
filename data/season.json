@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-11-20T16:07:56Z",
+  "updatedAt": "2026-11-21T23:47:37Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
-    "overall": "12-1-6",
-    "conference": "8-0-2",
-    "goalsFor": 37,
+    "overall": "13-1-6",
+    "conference": "9-0-2",
+    "goalsFor": 38,
     "goalsAgainst": 14,
-    "games": 19,
-    "shots": 300,
-    "corners": 117,
-    "unbeatenRun": 17
+    "games": 20,
+    "shots": 314,
+    "corners": 125,
+    "unbeatenRun": 18
   },
   "player": {
     "name": "Niklas Borck",
@@ -506,24 +506,27 @@
       "location": "St. Augustine, Fla.",
       "conference": true,
       "competition": "regular",
-      "status": "scheduled",
-      "time": "TBA"
+      "status": "final",
+      "time": "TBA",
+      "result": "W",
+      "for": 1,
+      "against": 0
     }
   ],
   "standings": [
     {
       "team": "Emory & Henry",
-      "conference": "8-0-2",
-      "points": 26,
-      "overall": "12-1-6",
-      "form": "W13"
+      "conference": "9-0-2",
+      "points": 29,
+      "overall": "13-1-6",
+      "form": "W14"
     },
     {
       "team": "Catawba",
       "conference": "8-1-1",
       "points": 25,
-      "overall": "15-2-2",
-      "form": "W1"
+      "overall": "15-3-2",
+      "form": "L1"
     },
     {
       "team": "Anderson",
@@ -589,7 +592,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-21T19:13:03Z",
+  "checkedAt": "2026-11-21T23:47:37Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
