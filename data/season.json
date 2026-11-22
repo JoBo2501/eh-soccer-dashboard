@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T23:47:37Z",
+  "updatedAt": "2026-11-22T06:43:47Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "13-1-6",
@@ -14,14 +14,14 @@
   "player": {
     "name": "Niklas Borck",
     "number": 14,
-    "minutes": 293,
+    "minutes": 312,
     "starts": 2,
-    "appearances": 14,
+    "appearances": 15,
     "goals": 0,
     "assists": 2,
-    "shots": 4,
-    "shotsOnGoal": 2,
-    "verifiedThrough": "2026-11-08",
+    "shots": 5,
+    "shotsOnGoal": 3,
+    "verifiedThrough": "2026-11-21",
     "log": [
       {
         "date": "2026-08-27",
@@ -196,6 +196,18 @@
         "yellowCards": 0,
         "url": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261108_1omb.xml",
         "competition": "sac-tournament"
+      },
+      {
+        "date": "2026-11-21",
+        "opponent": "Catawba College",
+        "site": "home",
+        "role": "Sub",
+        "minutes": 19,
+        "goals": 0,
+        "assists": 0,
+        "shots": 1,
+        "shotsOnGoal": 1,
+        "url": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261121_js9o.xml"
       }
     ],
     "yellowCards": 1
@@ -510,7 +522,8 @@
       "time": "TBA",
       "result": "W",
       "for": 1,
-      "against": 0
+      "against": 0,
+      "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261121_js9o.xml"
     }
   ],
   "standings": [
@@ -592,7 +605,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-21T23:47:37Z",
+  "checkedAt": "2026-11-22T06:43:47Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
