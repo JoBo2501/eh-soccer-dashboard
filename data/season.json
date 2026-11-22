@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T06:43:47Z",
+  "updatedAt": "2026-11-22T14:54:44Z",
   "source": "https://thesac.com/schedule.aspx?schedule=2504",
   "team": {
     "overall": "13-1-6",
@@ -524,6 +524,16 @@
       "for": 1,
       "against": 0,
       "boxScoreUrl": "https://www.gowasps.com/sports/msoc/2026-27/boxscores/20261121_js9o.xml"
+    },
+    {
+      "date": "2026-11-23",
+      "opponent": "Flagler (National Quarterfinal)",
+      "site": "away",
+      "location": "St. Augustine, Fla.",
+      "conference": false,
+      "competition": "regular",
+      "status": "scheduled",
+      "time": "TBA"
     }
   ],
   "standings": [
@@ -605,7 +615,7 @@
       "form": "L3"
     }
   ],
-  "checkedAt": "2026-11-22T06:43:47Z",
+  "checkedAt": "2026-11-22T14:54:44Z",
   "refreshHealth": {
     "status": "ok",
     "sacDatasetsRefreshed": 3,
